@@ -12,6 +12,9 @@ import { StudentDetailsComponent } from './ui/student-details/student-details.co
 import { StudentMarksComponent } from './ui/student-marks/student-marks.component';
 import { InstrumentDetailsComponent } from './ui/instrument-details/instrument-details.component';
 import { TeacherListComponent } from './ui/teacher-list/teacher-list.component';
+import { InstrumentListComponent } from './ui/instrument-list/instrument-list.component';
+import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { TeacherListComponent } from './ui/teacher-list/teacher-list.component';
     StudentDetailsComponent,
     StudentMarksComponent,
     InstrumentDetailsComponent,
-    TeacherListComponent
+    TeacherListComponent,
+    InstrumentListComponent,
+    PageNotFoundComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,8 @@ import { TeacherListComponent } from './ui/teacher-list/teacher-list.component';
 import { InstrumentListComponent } from './ui/instrument-list/instrument-list.component';
 import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
+import { TeacherSubjectComponent } from './component/teacher-subject/teacher-subject.component';
+import { TeacherInstrumentItemComponent } from './component/teacher-instrument-item/teacher-instrument-item.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { NavbarComponent } from './component/navbar/navbar.component';
     TeacherListComponent,
     InstrumentListComponent,
     PageNotFoundComponent,
-    NavbarComponent
+    NavbarComponent,
+    TeacherSubjectComponent,
+    TeacherInstrumentItemComponent
   ],
   imports: [
     BrowserModule,

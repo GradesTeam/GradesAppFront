@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  provideClientHydration,
+} from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,8 +18,7 @@ import { TeacherListComponent } from './ui/teacher-list/teacher-list.component';
 import { InstrumentListComponent } from './ui/instrument-list/instrument-list.component';
 import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
-import { AsignaturaItemComponent } from './component/asignatura-item/asignatura-item.component';
-import { AsignaturaListComponent } from './component/asignatura-list/asignatura-list.component';
+import { SubjectItemComponent } from './component/subject-item/subject-item.component';
 
 @NgModule({
   declarations: [
@@ -33,16 +35,10 @@ import { AsignaturaListComponent } from './component/asignatura-list/asignatura-
     InstrumentListComponent,
     PageNotFoundComponent,
     NavbarComponent,
-    AsignaturaItemComponent,
-    AsignaturaListComponent
+    SubjectItemComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [
-    provideClientHydration()
-  ],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule],
+  providers: [provideClientHydration()],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

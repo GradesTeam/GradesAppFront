@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { InstrumentoListResponse } from '../../models/instrumento-list.interface';
 
 @Component({
   selector: 'app-teacher-instrument-item',
@@ -6,8 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './teacher-instrument-item.component.css'
 })
 export class TeacherInstrumentItemComponent {
-popoverClicked(event: MouseEvent) {
-event.stopPropagation();
-}
+  @Input() instrument!: InstrumentoListResponse
+  
+  popoverClicked(event: MouseEvent) {
+  event.stopPropagation();
+  }
   
 }

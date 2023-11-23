@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrl: './teacher-instrument-item.component.css'
 })
 export class TeacherInstrumentItemComponent {
-
+popoverClicked(event: MouseEvent) {
+event.stopPropagation();
+}
+  
 }

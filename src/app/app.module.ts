@@ -17,6 +17,10 @@ import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.compon
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { TeacherSubjectComponent } from './component/teacher-subject/teacher-subject.component';
 import { TeacherInstrumentItemComponent } from './component/teacher-instrument-item/teacher-instrument-item.component';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -38,11 +42,18 @@ import { TeacherInstrumentItemComponent } from './component/teacher-instrument-i
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule,
+    NgbModule
   ],
   providers: [
     provideClientHydration()
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+  constructor(library: FaIconLibrary) {
+    library.addIconPacks(fas);
+}
+}

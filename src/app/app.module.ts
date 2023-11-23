@@ -19,6 +19,7 @@ import { InstrumentListComponent } from './ui/instrument-list/instrument-list.co
 import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { SubjectItemComponent } from './component/subject-item/subject-item.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { SubjectItemComponent } from './component/subject-item/subject-item.comp
     NavbarComponent,
     SubjectItemComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],
 })

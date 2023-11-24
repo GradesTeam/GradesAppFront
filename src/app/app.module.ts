@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './ui/login/login.component';
@@ -15,6 +15,12 @@ import { TeacherListComponent } from './ui/teacher-list/teacher-list.component';
 import { InstrumentListComponent } from './ui/instrument-list/instrument-list.component';
 import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
+import { TeacherSubjectComponent } from './component/teacher-subject/teacher-subject.component';
+import { TeacherInstrumentItemComponent } from './component/teacher-instrument-item/teacher-instrument-item.component';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -30,15 +36,25 @@ import { NavbarComponent } from './component/navbar/navbar.component';
     TeacherListComponent,
     InstrumentListComponent,
     PageNotFoundComponent,
-    NavbarComponent
+    NavbarComponent,
+    TeacherSubjectComponent,
+    TeacherInstrumentItemComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule,
+    NgbModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration()
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+  constructor(library: FaIconLibrary) {
+    library.addIconPacks(fas);
+}
+}

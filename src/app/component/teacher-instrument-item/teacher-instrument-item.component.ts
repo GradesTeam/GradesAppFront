@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { InstrumentoListResponse } from '../../models/instrumento-list.interface';
+import { AllInstrumentoDTO } from '../../models/instrumento-list.interface';
 
 @Component({
   selector: 'app-teacher-instrument-item',
@@ -7,10 +7,10 @@ import { InstrumentoListResponse } from '../../models/instrumento-list.interface
   styleUrl: './teacher-instrument-item.component.css'
 })
 export class TeacherInstrumentItemComponent {
-  @Input() instrument!: InstrumentoListResponse
+  @Input() instrument!: AllInstrumentoDTO;
   
   popoverClicked(event: MouseEvent) {
-  event.stopPropagation();
+    event.stopPropagation();
   }
   
 }

@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { InstrumentService } from '../../services/instrument.service';
-import { InstrumentoListResponse } from '../../models/instrumento-list.interface';
+import { AllInstrumentoDTO, InstrumentoListResponse } from '../../models/instrumento-list.interface';
+import { ActivatedRoute } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-teacher-subject',
@@ -8,12 +10,24 @@ import { InstrumentoListResponse } from '../../models/instrumento-list.interface
   styleUrl: './teacher-subject.component.css'
 })
 export class TeacherSubjectComponent implements OnInit{
-  instrumentoList!: InstrumentoListResponse[];
+  instrumentoList!: AllInstrumentoDTO[];
+  instrumentoInfo !: InstrumentoListResponse;
+  page:number = 0;
+  route: ActivatedRoute = inject(ActivatedRoute);
+  asignaturaId: string = '';
 
-  constructor(private instrumentoService: InstrumentService){}
+  constructor(private instrumentoService: InstrumentService,  private _sanitizer: DomSanitizer){
+    this.asignaturaId = this.route.snapshot.params['id'];
+  }
 
   ngOnInit(): void {
-      this.instrumentoService.getInstrumentosFromAsignatura("6c67fdf2-bf8d-43fb-8223-fb6285667a31").subscribe()
+      this.loadNewPage();
+  }
+  loadNewPage(){
+    this.instrumentoService.getInstrumentosFromAsignatura(this.asignaturaId, this.page).subscribe(answ => {
+      this.instrumentoList = answ.content;
+      this.instrumentoInfo = answ;
+    });
   }
 
 }

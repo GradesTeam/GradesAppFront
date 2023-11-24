@@ -1,4 +1,4 @@
-<div class="card mb-3"  style="cursor: pointer;" [routerLink]="['teacher/subject/instrument/', 1]">
+<div class="card mb-3"  style="cursor: pointer;" [routerLink]="['teacher/subject/instrument/', instrument.id]">
     <div class="row g-0">
       <div class="col-md-1 align-items-center d-flex justify-content-center">
         <div class="rounded-circle bg-primary d-flex justify-content-center align-items-center " id="clipboard-icon">
@@ -7,8 +7,8 @@
       </div>
       <div class="col-md-10" >
         <div class="card-body">
-          <h5 class="card-title fw-bold fs-2">Instrumento</h5>
-          <p class="card-text"><small class="text-body-secondary ">25/07/2023</small></p>
+          <h5 class="card-title fw-bold fs-2">{{instrument.nombre}}</h5>
+          <p class="card-text"><small class="text-body-secondary ">{{instrument.fecha}}</small></p>
         </div>
       </div>
       <div class="col-md-1 align-items-center d-flex">

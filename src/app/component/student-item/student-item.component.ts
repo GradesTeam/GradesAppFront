@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { AlumnoP } from '../../models/alumno-profesor-list.inteface';
 
 @Component({
   selector: 'app-student-item',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class StudentItemComponent {
 
+  @Input() student!: AlumnoP;
 }

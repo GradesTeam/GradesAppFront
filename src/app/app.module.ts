@@ -20,6 +20,9 @@ import { TeacherInstrumentItemComponent } from './component/teacher-instrument-i
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TeacherReferentListComponent } from './component/teacher-referent-list/teacher-referent-list.component';
+import { TeacherInstrumentListComponent } from './component/teacher-instrument-list/teacher-instrument-list.component';
+import { TeacherReferenteItemComponent } from './component/teacher-referente-item/teacher-referente-item.component';
 
 
 @NgModule({
@@ -38,7 +41,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PageNotFoundComponent,
     NavbarComponent,
     TeacherSubjectComponent,
-    TeacherInstrumentItemComponent
+    TeacherInstrumentItemComponent,
+    TeacherReferentListComponent,
+    TeacherInstrumentListComponent,
+    TeacherReferenteItemComponent
   ],
   imports: [
     BrowserModule,

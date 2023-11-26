@@ -1,0 +1,15 @@
+<div class="d-flex mb-1 justify-content-between">
+    <div class=" fw-bold">
+        Instrumentos de Evaluación
+    </div>
+    <div></div>
+    <div class="">
+        <button class="btn btn-primary fs-5"><fa-icon [icon]="['fas', 'circle-plus']" class="text-white "></fa-icon> Añadir</button>
+    </div>
+</div>
+<div class="d-flex flex-column">
+    <app-teacher-instrument-item *ngFor="let ins of instrumentoList" [instrument]="ins"></app-teacher-instrument-item>
+</div>
+<nav class="d-flex justify-content-center mt-2">
+    <ngb-pagination [collectionSize]="instrumentoInfo.totalElements" [(page)]="page" [maxSize]="instrumentoInfo.size" [boundaryLinks]="true" />
+</nav>

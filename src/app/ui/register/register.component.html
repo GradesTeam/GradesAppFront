@@ -1,24 +1,36 @@
-<body>
-    <div class="registration-form">
-        <form>
-            <div class="form-group">
-                <input type="text" class="form-control item" id="username" placeholder="Username">
+<div class="registration-form">
+    <form name="form" #f="ngForm" (ngSubmit)="f.form.valid">
+        <div class="form-group">
+            <input type="text" class="form-control item" id="username" placeholder="Username"
+                [(ngModel)]="form.username" name="username" #username="ngModel">
+
+        </div>
+
+        <div class=" form-group">
+            <input type="email" class="form-control item" id="email" placeholder="Email" [(ngModel)]="form.email"
+                name="email" #email="ngModel">
+            <div class="alert-danger" *ngIf="email.errors && f.submitted">
+                <div *ngIf="email.errors['required']">Email is required</div>
+                <div *ngIf="email.errors['email']">
+                    Email must be a valid email address
+                </div>
             </div>
-            <div class="form-group">
-                <input type="text" class="form-control item" id="email" placeholder="Email">
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control item" id="password" placeholder="Password">
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control item" id="r-password" placeholder="Repeat password">
-            </div>
-            <div class="form-group">
-                <input type="date" class="form-control item" id="birth-date" placeholder="Birth Date">
-            </div>
-            <div class="form-group">
-                <button type="button" class="btn btn-primary create-account form-control item">Create Account</button>
-            </div>
-        </form>
-    </div>
-</body>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control item" id="password" placeholder="Password"
+                [(ngModel)]="form.password" name="password" #password="ngModel">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control item" id="r-password" placeholder="Repeat password"
+                [(ngModel)]="form.repeatPassword" name="r-password" #repeatPassword="ngModel">
+        </div>
+        <div class="form-group">
+            <input type="date" class="form-control item" id="birth-date" placeholder="Birth Date"
+                [(ngModel)]="form.date" name="birth-date" #date="ngModel">
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-primary create-account form-control item"
+                (click)="createStudent()">Create Account</button>
+        </div>
+    </form>
+</div>

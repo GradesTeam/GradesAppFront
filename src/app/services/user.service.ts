@@ -11,14 +11,15 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  createStudent(username: string, name: string, surname: string, password: string): Observable<UserResponse>{
-    return this.http.post<UserResponse>(`${environment.apiBaseUrl}/student/register`,
-    {
-      "username": username,
-      "nombre": name,
-      "apellidos": surname,
-      "password": password
-    }
+  createStudent(username: any, fecha: any, email: any, password: any, repeatPassword: any): Observable<UserResponse> {
+    return this.http.post<UserResponse>(`${environment.apiBaseUrl}student/register`,
+      {
+        "username": username,
+        "email": email,
+        "password": password,
+        "repeatPassword": repeatPassword,
+        "date": fecha
+      }
     );
   }
 }

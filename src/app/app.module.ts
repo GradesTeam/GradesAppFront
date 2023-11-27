@@ -7,7 +7,6 @@ import { LoginComponent } from './ui/login/login.component';
 import { RegisterComponent } from './ui/register/register.component';
 import { SubjectListComponent } from './ui/subject-list/subject-list.component';
 import { SubjectDetailsComponent } from './ui/subject-details/subject-details.component';
-import { StudentListComponent } from './ui/student-list/student-list.component';
 import { StudentDetailsComponent } from './ui/student-details/student-details.component';
 import { StudentMarksComponent } from './ui/student-marks/student-marks.component';
 import { InstrumentDetailsComponent } from './ui/instrument-details/instrument-details.component';
@@ -25,6 +24,9 @@ import { TeacherInstrumentListComponent } from './component/teacher-instrument-l
 import { TeacherReferenteItemComponent } from './component/teacher-referente-item/teacher-referente-item.component';
 import { FormsModule } from '@angular/forms';
 
+import { StudentItemComponent } from './component/student-item/student-item.component';
+import { StudentListComponent } from './component/student-list/student-list.component';
+import { PageStudentListComponent } from './ui/page-student-list/page-student-list.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { FormsModule } from '@angular/forms';
     TeacherInstrumentItemComponent,
     TeacherReferentListComponent,
     TeacherInstrumentListComponent,
-    TeacherReferenteItemComponent
+    TeacherReferenteItemComponent,
+    StudentItemComponent,
+    PageStudentListComponent
   ],
   imports: [
     BrowserModule,

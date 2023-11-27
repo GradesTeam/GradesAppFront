@@ -12,6 +12,6 @@ export class InstrumentService {
   constructor(private http: HttpClient) { }
 
   getInstrumentosFromAsignatura(id:string, page:number):Observable<InstrumentoListResponse>{
-    return this.http.get<InstrumentoListResponse>(`http://${environment.apiBaseUrl}asignatura/${id}/instrumentos?page=${page}`);
+    return this.http.get<InstrumentoListResponse>(`${environment.apiBaseUrl}/teacher/asignatura/${id}/instrumentos?page=${page}`);
   }
 }

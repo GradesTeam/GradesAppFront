@@ -22,6 +22,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TeacherReferentListComponent } from './component/teacher-referent-list/teacher-referent-list.component';
 import { TeacherInstrumentListComponent } from './component/teacher-instrument-list/teacher-instrument-list.component';
 import { TeacherReferenteItemComponent } from './component/teacher-referente-item/teacher-referente-item.component';
+import { FormsModule } from '@angular/forms';
+
 import { StudentItemComponent } from './component/student-item/student-item.component';
 import { StudentListComponent } from './component/student-list/student-list.component';
 import { PageStudentListComponent } from './ui/page-student-list/page-student-list.component';
@@ -54,7 +56,8 @@ import { PageStudentListComponent } from './ui/page-student-list/page-student-li
     AppRoutingModule,
     FontAwesomeModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration()

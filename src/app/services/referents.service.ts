@@ -14,10 +14,10 @@ export class ReferentsService {
   constructor(private http: HttpClient) { }
 
   getReferentesFromAsignatura(id:string, page:number):Observable<ReferenteListResponse>{
-    return this.http.get<ReferenteListResponse>(`http://${environment.apiBaseUrl}teacher/asignatura/${id}/referentes?page=${page}`);
+    return this.http.get<ReferenteListResponse>(`${environment.apiBaseUrl}/teacher/asignatura/${id}/referentes?page=${page}`);
   }
   createReferente(id:string, newRef: POSTReferenteDTO):Observable<any>{
-    return this.http.post<CreatedReferenteResponse>(`http://${environment.apiBaseUrl}teacher/asignatura/${id}/referente`, 
+    return this.http.post<CreatedReferenteResponse>(`${environment.apiBaseUrl}/teacher/asignatura/${id}/referente`, 
     {
       codReferente: newRef.codReferente,
       descripcion: newRef.descripcion

@@ -4,7 +4,6 @@ import { AllReferenteDTO, ReferenteListResponse } from '../../models/referente-l
 import { ActivatedRoute } from '@angular/router';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { POSTReferenteDTO } from '../../models/create-referente.interface';
-import { CreatedReferenteResponse } from '../../models/create-referente-request.interface';
 
 @Component({
   selector: 'app-teacher-referent-list',
@@ -21,6 +20,10 @@ export class TeacherReferentListComponent implements OnInit{
   asignaturaId: string = '';
   codRef: string = "";
   desc: string = '';
+  codRefErrNE: string = "";
+  codRefR:string ="";
+  descErr: string = "";
+  codRefErrR: any;
 
   constructor(private referenteService: ReferentsService, private modalService: NgbModal){
     this.asignaturaId = this.route.snapshot.params['id'];
@@ -42,19 +45,37 @@ export class TeacherReferentListComponent implements OnInit{
 
   toSave(){
     let newRef: POSTReferenteDTO = new POSTReferenteDTO(this.codRef, this.desc);
-    this.referenteService.createReferente(this.asignaturaId, newRef).subscribe(ans => {
-      if(ans.codRef != null) {
-        let goodResponse = ans as CreatedReferenteResponse;
-        window.location.href = "http://localhost:4200/teacher/subject/"+this.asignaturaId;
+    this.referenteService.createReferente(this.asignaturaId, newRef).subscribe({
+      next: data =>{
+        window.location.href = "http://localhost:4200/teacher/subject/"+this.asignaturaId+"?instrumento=false";
+      },error: err =>{
+        if(err.status = 400){
+          this.codRefErrNE = "";
+          this.codRefErrR = "";
+          this.descErr = "";
+          let badReq = err;
+          let errors = badReq.error.body.fields_errors;
+          errors.forEach((erro: { field: any; message: any; }) => {
+            if(erro.field == 'codReferente'){
+              console.log(erro.message);
+              if(erro.message == "La descripción del referente no puede estar vacía"){
+                this.codRefErrNE = erro.message;
+                this.codRefErrR = "";
+              }else{
+                this.codRefErrR = erro.message;
+              }
+            }else{
+              this.descErr = erro.message;
+            }
+          });
+        }
         
-
-      }else{
-        alert("nonono");
       }
-      
-    });
+    }
+    );
     
   }
 
   
 }
+

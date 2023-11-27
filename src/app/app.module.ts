@@ -3,7 +3,7 @@ import {
   BrowserModule,
   provideClientHydration,
 } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './ui/login/login.component';
@@ -18,8 +18,17 @@ import { TeacherListComponent } from './ui/teacher-list/teacher-list.component';
 import { InstrumentListComponent } from './ui/instrument-list/instrument-list.component';
 import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
-import { SubjectItemComponent } from './component/subject-item/subject-item.component';
+import { TeacherSubjectComponent } from './component/teacher-subject/teacher-subject.component';
+import { TeacherInstrumentItemComponent } from './component/teacher-instrument-item/teacher-instrument-item.component';
+import {
+  FontAwesomeModule,
+  FaIconLibrary,
+} from '@fortawesome/angular-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TeacherReferentListComponent } from './component/teacher-referent-list/teacher-referent-list.component';
+import { TeacherInstrumentListComponent } from './component/teacher-instrument-list/teacher-instrument-list.component';
+import { TeacherReferenteItemComponent } from './component/teacher-referente-item/teacher-referente-item.component';
 
 @NgModule({
   declarations: [
@@ -36,10 +45,24 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     InstrumentListComponent,
     PageNotFoundComponent,
     NavbarComponent,
-    SubjectItemComponent,
+    TeacherSubjectComponent,
+    TeacherInstrumentItemComponent,
+    TeacherReferentListComponent,
+    TeacherInstrumentListComponent,
+    TeacherReferenteItemComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FontAwesomeModule,
+    NgbModule,
+    HttpClientModule,
+  ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIconPacks(fas);
+  }
+}

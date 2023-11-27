@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef, inject } from '@angular/core';
 import { AlumnoP } from '../../models/alumno-profesor-list.inteface';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute } from '@angular/router';
-import { POSTAlumnoDTO } from '../../models/create-alumno-request.interface';
+import { POSTAlumnoDTO } from '../../models/create-alumno.interface';
 import { AlumnoService } from '../../services/alumno.service';
 
 @Component({
@@ -49,6 +49,10 @@ export class PageStudentListComponent implements OnInit{
 
   crearAlumno(){
     let nuevoAlumno: POSTAlumnoDTO = new POSTAlumnoDTO(this.nombre, this.apellidos, this.fechaNacimiento, this.email, this.telefono, this.username, this.password);
+    this.alumnoService.createAlumno(nuevoAlumno).subscribe({
+      next: data =>{
+        window.location.href = "http://localhost:4200/teacher/"+this.teacherId+"/student";
+      }});
 }
 
 }

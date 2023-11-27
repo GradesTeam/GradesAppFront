@@ -26,7 +26,6 @@ import {
 } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { TeacherReferentListComponent } from './component/teacher-referent-list/teacher-referent-list.component';
 import { TeacherInstrumentListComponent } from './component/teacher-instrument-list/teacher-instrument-list.component';
 import { TeacherReferenteItemComponent } from './component/teacher-referente-item/teacher-referente-item.component';
 import { FormsModule } from '@angular/forms';
@@ -34,6 +33,7 @@ import { FormsModule } from '@angular/forms';
 import { StudentItemComponent } from './component/student-item/student-item.component';
 import { StudentListComponent } from './component/student-list/student-list.component';
 import { PageStudentListComponent } from './ui/page-student-list/page-student-list.component';
+import { TeacherReferentListComponent } from './component/teacher-referent-list/teacher-referent-list.component';
 import { PageSubjectListComponent } from './ui/page-subject-list/page-subject-list.component';
 
 @NgModule({
@@ -53,13 +53,13 @@ import { PageSubjectListComponent } from './ui/page-subject-list/page-subject-li
     NavbarComponent,
     TeacherSubjectComponent,
     TeacherInstrumentItemComponent,
-    TeacherReferentListComponent,
     TeacherInstrumentListComponent,
     TeacherReferenteItemComponent,
     StudentItemComponent,
     PageStudentListComponent,
+    TeacherReferentListComponent,
     PageSubjectListComponent,
-    SubjectListComponent,
+    SubjectListComponent
   ],
   imports: [
     BrowserModule,

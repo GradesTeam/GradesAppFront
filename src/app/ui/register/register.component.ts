@@ -28,9 +28,15 @@ export class RegisterComponent {
 
   createStudent() {
 
+    this.emailErr= "";
+    this.usernameErr = "";
+    this.passwordErr = "";
+    this.repeatPasswordErr = "";
+
     this.userService.createStudent(this.username, this.date, this.email, this.password, this.repeatPassword).subscribe({
       next: data => {
-
+        alert(this.date)
+        window.location.href = `${environment.localHost}login`;
       },
 
       error: err => {
@@ -48,11 +54,10 @@ export class RegisterComponent {
             case "password":
               this.passwordErr = erro.message;
               break;
-
-            case "repeat_password":
-              this.repeatPassword = erro.message;
-              break;
           }
+
+          if (erro.message == "Las contraseñas no coinciden")
+            this.repeatPasswordErr= erro.message;
 
         });
       }

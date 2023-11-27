@@ -17,7 +17,7 @@ export class InstrumentService {
     return this.http.get<InstrumentoListResponse>(`${environment.apiBaseUrl}/teacher/asignatura/${id}/instrumentos?page=${page}`);
   }
   createInstrumentosFromAsignatura(id:string, newIns: POSTInstrumentoDTO):Observable<CreateInstrumentResponse>{
-    return this.http.post<CreateInstrumentResponse>(``,
+    return this.http.post<CreateInstrumentResponse>(`${environment.apiBaseUrl}/teacher/asignatura/${id}/instrumento`,
     {
       nombre: newIns.nombre,
       fecha: newIns.fecha,

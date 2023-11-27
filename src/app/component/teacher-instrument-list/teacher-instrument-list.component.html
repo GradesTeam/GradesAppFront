@@ -17,6 +17,7 @@
                     <div id="dcError" class="text-danger">{{contentErr}}</div>
                   </div>
                   <div class="mb-3">
+                    <div>Selecciona la fecha en la que se realizará</div>
                     <div class="input-group">
                         <input
                             class="form-control"
@@ -25,19 +26,24 @@
                             [(ngModel)]="date"
                             ngbDatepicker
                             #d="ngbDatepicker"
+                            required
                         />
-                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"></button>
+                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"><fa-icon [icon]="['fas', 'calendar-days']" class=" "></fa-icon></button>
                     </div>
-                    
+                    <div id="dcError" class="text-danger">{{dateErr}}</div>
                   </div>
-                  <div class="mb-3 d-flex">
-                    <div class="form-check" *ngFor="let ref of referenteList">
+                  <div class="">Selecciona los referentes que quieres agregar</div>
+                  <div class="m-3 row">
+                    
+                    <div class="form-check col-4" *ngFor="let ref of referenteList">
                         <input class="form-check-input" type="checkbox" (value)="ref.codReferente" (change)="addToReferentes(ref.codReferente, $event)" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                           {{ref.codReferente}}
                         </label>
                     </div>
+                    
                   </div>
+                  <div id="dcError" class="text-danger">{{refErr}}</div>
                   <button type="button" class="btn btn-dark" (click)="toSave()">Guardar</button>
                 
 			</div>

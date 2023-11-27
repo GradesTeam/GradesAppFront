@@ -12,7 +12,7 @@ export class SubjectItemService {
 
   getAsignaturas(page: number): Observable<SubjectResponse> {
     return this.http.get<SubjectResponse>(
-      `${environment.apiBaseUrl}/asignatura/?page=${page}`
+      `${environment.apiBaseUrl}/teacher/asignatura/?page=${page}`
     );
   }
 }

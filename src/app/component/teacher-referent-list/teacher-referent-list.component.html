@@ -8,13 +8,13 @@
 			<div class="mb-3">
                 <div class="mb-3">
                     <label for="codRef" class="form-label">Introduce el código del referente</label>
-                    <input type="text" class="form-control" id="codRef" aria-describedby="codRef" [value]="codRef" required>
+                    <input type="text" class="form-control" id="codRef" name="codRef" aria-describedby="codRef" [(ngModel)]="codRef" required>
                   </div>
                   <div class="mb-3">
                     <label for="descRef" class="form-label">Introduce la descripción del referente</label>
-                    <input type="text" class="form-control" id="descRef" required [value]="desc">
+                    <input type="text" class="form-control" id="descRef" name="descRef" required [(ngModel)]="desc">
                   </div>
-                  <button type="submit" class="btn btn-primary" (click)="toSave()">Guardar</button>
+                  <button type="button" class="btn btn-primary" (click)="toSave()">Guardar</button>
                 
 			</div>
 		</form>

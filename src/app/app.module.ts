@@ -23,6 +23,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TeacherReferentListComponent } from './component/teacher-referent-list/teacher-referent-list.component';
 import { TeacherInstrumentListComponent } from './component/teacher-instrument-list/teacher-instrument-list.component';
 import { TeacherReferenteItemComponent } from './component/teacher-referente-item/teacher-referente-item.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { TeacherReferenteItemComponent } from './component/teacher-referente-ite
     AppRoutingModule,
     FontAwesomeModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration()

@@ -4,6 +4,7 @@ import { AllReferenteDTO, ReferenteListResponse } from '../../models/referente-l
 import { ActivatedRoute } from '@angular/router';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { POSTReferenteDTO } from '../../models/create-referente.interface';
+import { CreatedReferenteResponse } from '../../models/create-referente-request.interface';
 
 @Component({
   selector: 'app-teacher-referent-list',
@@ -31,7 +32,6 @@ export class TeacherReferentListComponent implements OnInit{
   loadNewPage(){
     this.referenteService.getReferentesFromAsignatura(this.asignaturaId, this.page).subscribe(answ => {
       this.referenteList = answ.content;
-      console.log(this.referenteList);
       this.referenteInfo = answ;
     });
   }
@@ -43,12 +43,17 @@ export class TeacherReferentListComponent implements OnInit{
   toSave(){
     let newRef: POSTReferenteDTO = new POSTReferenteDTO(this.codRef, this.desc);
     this.referenteService.createReferente(this.asignaturaId, newRef).subscribe(ans => {
-      if(ans instanceof POSTReferenteDTO){
-        window.location.href = "https://localhost:4200/teacher/subject/"+ this.asignaturaId;
+      if(ans.codRef != null) {
+        let goodResponse = ans as CreatedReferenteResponse;
+        window.location.href = "http://localhost:4200/teacher/subject/"+this.asignaturaId;
+        
+
       }else{
-        console.log("hola mundo")
+        alert("nonono");
       }
+      
     });
+    
   }
 
   

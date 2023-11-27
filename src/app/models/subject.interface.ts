@@ -14,4 +14,5 @@ export interface SubjectA {
   asigDescripcion: string;
   nombreProfesor: string;
   color: string;
+  numAlumnos: number;
 }

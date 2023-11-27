@@ -8,5 +8,5 @@ import { AlumnoP } from '../../models/alumno-profesor-list.inteface';
 })
 export class StudentItemComponent {
 
-  @Input() student!: AlumnoP;
+  @Input() alumno!: AlumnoP;
 }

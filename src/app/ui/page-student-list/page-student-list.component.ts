@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AlumnoP } from '../../models/alumno-profesor-list.inteface';
 
 @Component({
   selector: 'app-page-student-list',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class PageStudentListComponent {
 
+  alumnoPList: AlumnoP[] = [];
+  page = 0;
 }

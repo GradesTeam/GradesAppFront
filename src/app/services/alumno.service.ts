@@ -19,7 +19,7 @@ export class AlumnoService {
     return this.http.get<AlumnoProfesorListResponse>(`${environment.apiBaseUrl}/${API_BASE_URL}/${id}/alumnos`);
   }
 
-  createAlumno(alumno:POSTAlumnoDTO):Observable<any>{
+  createAlumno(alumno: POSTAlumnoDTO):Observable<CreatedAlumnoResponse>{
     return this.http.post<CreatedAlumnoResponse>(`${environment.apiBaseUrl}/alumno/`,
     {
       nombre: alumno.nombre,

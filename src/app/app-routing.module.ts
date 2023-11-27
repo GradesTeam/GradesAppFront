@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'student', component: PageSubjectListComponent },
+  {path: 'teacher/:id/student', component: PageStudentListComponent},
   { path: 'student/subject/:id', component: StudentMarksComponent },
   { path: 'teacher', component: PageSubjectListComponent },
   { path: 'teacher/students', component: StudentListComponent },
@@ -30,8 +31,7 @@ const routes: Routes = [
     component: InstrumentDetailsComponent,
   },
   { path: '', component: PageSubjectListComponent },
-  { path: '**', component: PageNotFoundComponent },
-  {path: 'teacher/:id/student', component: PageStudentListComponent}
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

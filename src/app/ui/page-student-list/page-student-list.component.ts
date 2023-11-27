@@ -29,8 +29,6 @@ export class PageStudentListComponent implements OnInit{
     this.teacherId = this.route.snapshot.params['id'];
   }
 
-	closeResult = '';
-
   ngOnInit(): void {
     this.alumnoService.getAlumnoProfesor(this.teacherId).subscribe(resp => {
       this.alumnoPList = resp.content;
@@ -38,21 +36,15 @@ export class PageStudentListComponent implements OnInit{
   }
 
 	open(content: TemplateRef<any>) {
-		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
-			(result) => {
-				this.closeResult = `Closed with: ${result}`;
-			},
-		);
+		this.modalService.open(content);
 	}
   
 
 
   crearAlumno(){
     let nuevoAlumno: POSTAlumnoDTO = new POSTAlumnoDTO(this.nombre, this.apellidos, this.fechaNacimiento, this.email, this.telefono, this.username, this.password);
-    this.alumnoService.createAlumno(nuevoAlumno).subscribe({
-      next: data =>{
-        window.location.href = "http://localhost:4200/teacher/"+this.teacherId+"/student";
-      }});
-}
+    this.alumnoService.createAlumno(nuevoAlumno).subscribe(resp =>{
+      });
+  }
 
 }

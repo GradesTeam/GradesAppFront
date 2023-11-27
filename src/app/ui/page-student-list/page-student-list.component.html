@@ -58,6 +58,8 @@
         <div class="input-group">
           <input
             id="nombre"
+            name="nombre"
+            type="text"
             class="form-control"
             placeholder="Paco"
             [(ngModel)]="nombre"
@@ -70,6 +72,8 @@
         <div class="input-group">
           <input
             id="apellidos"
+            name="apellidos"
+            type="text"
             class="form-control"
             placeholder="López Pérez"
             [(ngModel)]="apellidos"
@@ -78,13 +82,13 @@
         </div>
       </div>
       <div class="mb-3">
-        <label for="dateOfBirth">Date of birth</label>
+        <label for="fechaNacimiento">Date of birth</label>
         <div class="input-group">
           <input
-            id="dateOfBirth"
+            id="fechaNacimiento"
             class="form-control"
             placeholder="yyyy-mm-dd"
-            name="dp"
+            name="fechaNacimiento"
             ngbDatepicker
             #dp="ngbDatepicker"
             [(ngModel)]="fechaNacimiento"
@@ -115,7 +119,8 @@
         <div class="input-group">
           <input
             id="email"
-            type="email"
+            name="email"
+            type="text"
             class="form-control"
             placeholder="Paco"
             [(ngModel)]="email"
@@ -128,7 +133,9 @@
         <div class="input-group">
           <input
             id="telefono"
+            name="telefono"
             class="form-control"
+            type="text"
             placeholder="681 54 75 99"
             [(ngModel)]="telefono"
             required
@@ -140,8 +147,10 @@
         <div class="input-group">
           <input
             id="username"
+            name="username"
             class="form-control"
             placeholder="Paco"
+            type="text"
             [(ngModel)]="username"
             required
           />
@@ -152,6 +161,7 @@
         <div class="input-group">
           <input
             id="password"
+            name="password"
             type="password"
             class="form-control"
             [(ngModel)]="password"

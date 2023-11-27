@@ -58,7 +58,8 @@ import { PageSubjectListComponent } from './ui/page-subject-list/page-subject-li
     StudentItemComponent,
     PageStudentListComponent,
     TeacherReferentListComponent,
-    PageSubjectListComponent
+    PageSubjectListComponent,
+    SubjectListComponent
   ],
   imports: [
     BrowserModule,

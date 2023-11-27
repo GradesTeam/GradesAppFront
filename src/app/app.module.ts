@@ -8,8 +8,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './ui/login/login.component';
 import { RegisterComponent } from './ui/register/register.component';
-import { SubjectListComponent } from './ui/subject-list/subject-list.component';
 import { SubjectDetailsComponent } from './ui/subject-details/subject-details.component';
+import { SubjectItemComponent } from './component/subject-item/subject-item.component';
+import { SubjectListComponent } from './component/subject-list/subject-list.component';
 import { StudentDetailsComponent } from './ui/student-details/student-details.component';
 import { StudentMarksComponent } from './ui/student-marks/student-marks.component';
 import { InstrumentDetailsComponent } from './ui/instrument-details/instrument-details.component';
@@ -31,14 +32,15 @@ import { TeacherReferenteItemComponent } from './component/teacher-referente-ite
 import { StudentItemComponent } from './component/student-item/student-item.component';
 import { StudentListComponent } from './component/student-list/student-list.component';
 import { PageStudentListComponent } from './ui/page-student-list/page-student-list.component';
+import { PageSubjectListComponent } from './ui/page-subject-list/page-subject-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    SubjectListComponent,
     SubjectDetailsComponent,
+    SubjectItemComponent,
     StudentListComponent,
     StudentDetailsComponent,
     StudentMarksComponent,
@@ -54,6 +56,8 @@ import { PageStudentListComponent } from './ui/page-student-list/page-student-li
     TeacherReferenteItemComponent,
     StudentItemComponent,
     PageStudentListComponent,
+    PageSubjectListComponent,
+    SubjectListComponent,
   ],
   imports: [
     BrowserModule,

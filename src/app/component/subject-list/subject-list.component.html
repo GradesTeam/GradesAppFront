@@ -1,1 +1,15 @@
-<p>subject-list works!</p>
+<div class="row m-auto">
+  <app-subject-item
+    class="col-3 mt-4"
+    *ngFor="let subject of subjectList"
+    [subject]="subject"
+  ></app-subject-item>
+</div>
+<div class="pagination justify-content-center">
+  <ngb-pagination
+    [collectionSize]="subjectInfo.totalElements"
+    [(page)]="page"
+    aria-label="Default pagination"
+    [maxSize]="subjectInfo.size"
+  />
+</div>

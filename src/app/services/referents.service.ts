@@ -5,13 +5,17 @@ import { environment } from '../enviroment/enviroment';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ReferentsService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getReferentesFromAsignatura(id:string, page:number):Observable<ReferenteListResponse>{
-    return this.http.get<ReferenteListResponse>(`http://${environment.apiBaseUrl}asignatura/${id}/referentes?page=${page}`);
+  getReferentesFromAsignatura(
+    id: string,
+    page: number
+  ): Observable<ReferenteListResponse> {
+    return this.http.get<ReferenteListResponse>(
+      `${environment.apiBaseUrl}asignatura/${id}/referentes?page=${page}`
+    );
   }
 }

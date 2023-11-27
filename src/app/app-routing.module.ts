@@ -10,11 +10,13 @@ import { StudentMarksComponent } from './ui/student-marks/student-marks.componen
 import { InstrumentDetailsComponent } from './ui/instrument-details/instrument-details.component';
 import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
 import { StudentListComponent } from './component/student-list/student-list.component';
+import { PageStudentListComponent } from './ui/page-student-list/page-student-list.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'student', component: SubjectListComponent},
+  {path: 'teacher/:id/student', component: PageStudentListComponent},
   {path: 'student/subject/:id', component: StudentMarksComponent},
   {path: 'teacher', component: SubjectListComponent},
   {path: 'teacher/students', component: StudentListComponent},

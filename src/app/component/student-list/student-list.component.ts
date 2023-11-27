@@ -1,6 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { AlumnoP } from '../../models/alumno-profesor-list.inteface';
-import { AlumnoService } from '../../service/alumno.service';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-student-list',

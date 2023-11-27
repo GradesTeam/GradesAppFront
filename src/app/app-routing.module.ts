@@ -9,7 +9,6 @@ import { InstrumentListComponent } from './ui/instrument-list/instrument-list.co
 import { StudentMarksComponent } from './ui/student-marks/student-marks.component';
 import { InstrumentDetailsComponent } from './ui/instrument-details/instrument-details.component';
 import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
-import { PageTestNonoComponent } from './ui/page-test-nono/page-test-nono.component';
 import { StudentListComponent } from './component/student-list/student-list.component';
 
 const routes: Routes = [
@@ -23,7 +22,6 @@ const routes: Routes = [
   {path: 'teacher/subject/:id/instruments', component: InstrumentListComponent},
   {path: 'teacher/student/:id', component: StudentDetailsComponent},
   {path: 'teacher/subject/instrument/:id', component: InstrumentDetailsComponent},
-  {path: 'test', component: PageTestNonoComponent},
   {path: '', component: SubjectListComponent},
   {path: '**', component: PageNotFoundComponent}
 ];

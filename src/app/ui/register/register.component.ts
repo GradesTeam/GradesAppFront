@@ -11,15 +11,16 @@ import { error } from 'console';
 })
 export class RegisterComponent {
 
-  form: any = {
-    username: null,
-    email: null,
-    password: null,
-    repeatPassword: null,
-    date: null
-  };
+  username!: any;
+  email!: any
+  password!: any;
+  repeatPassword!: any;
+  date!: any;
 
-  errorMessage!: String;
+  emailErr: string = "";
+  usernameErr: string = "";
+  passwordErr: string = "";
+  repeatPasswordErr: string = "";
 
   constructor(private userService: UserService) { }
 
@@ -27,15 +28,37 @@ export class RegisterComponent {
 
   createStudent() {
 
-    this.userService.createStudent(this.form.username, this.form.date, this.form.email, this.form.password, this.form.repeatPassword).subscribe({
+    this.userService.createStudent(this.username, this.date, this.email, this.password, this.repeatPassword).subscribe({
       next: data => {
 
       },
 
       error: err => {
-        console.log(err.error.body.fields_errors);
+        let errors = err.error.body.fields_errors;
+        errors.forEach((erro: { field: any; message: any; }) => {
+          switch (erro.field) {
+            case "email":
+              this.emailErr = erro.message;
+              break;
+
+            case "username":
+              this.usernameErr = erro.message;
+              break;
+
+            case "password":
+              this.passwordErr = erro.message;
+              break;
+
+            case "repeat_password":
+              this.repeatPassword = erro.message;
+              break;
+          }
+
+        });
       }
     });
   }
+
+
 
 }

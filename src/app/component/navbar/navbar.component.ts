@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-
+  id= sessionStorage.getItem('id');
+  rol= sessionStorage.getItem('rol');
+  
+  logout(){
+    sessionStorage.clear();
+  }
 }

@@ -1,1 +1,34 @@
-<p>navbar works!</p>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 border">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-black min-vh-100">
+                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-black text-decoration-none">
+                    <img src="../../media/logo.png" alt="Logo de la aplicación" class="me-2" width="30" height="30">
+                    <h2>GradesApp</h2>
+                </a>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start " id="menu">
+                    
+                    <li class="nav-item" *ngIf="rol == 'ADMIN'">
+                        <a [routerLink]="['teacher/${id}/students']" class="d-flex nav-link text-muted align-middle px-0">
+                            <fa-icon [icon]="['fas', 'person']" class="fs-4 mx-2"></fa-icon> <h5 class="mt-1">Alumnado</h5>
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['teacher/']" class="d-flex nav-link text-muted px-0 align-middle">
+                            <fa-icon [icon]="['fas', 'school']" class="fs-4 mx-2"></fa-icon> <h5 class="mt-1">Profesorado</h5></a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['subjects/']" class="d-flex nav-link text-muted px-0 align-middle">
+                            <fa-icon [icon]="['fas', 'book-bookmark']" class="fs-4 mx-2"></fa-icon> <h5 class="mt-1">Asignaturas</h5> </a>
+                    </li>
+                    <hr>
+                    <li>
+                        <a href="" (click)="logout()" class="d-flex nav-link text-danger px-0 align-middle">
+                            <fa-icon [icon]="['fas', 'person-walking-dashed-line-arrow-right']" class="fs-4 mx-2"></fa-icon> <h5 class="mt-1">Cerrar sesión</h5> </a>
+                            
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

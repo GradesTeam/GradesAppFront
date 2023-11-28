@@ -1,7 +1,6 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
-import { SubjectItemService } from '../../services/subject.service';
+import { SubjectService } from '../../services/subject.service';
 import { SubjectA, SubjectResponse } from '../../models/subject.interface';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-subject-list',
@@ -12,7 +11,7 @@ export class SubjectListComponent implements OnInit {
   subjectList!: SubjectA[];
   subjectInfo!: SubjectResponse;
   page: number = 0;
-  constructor(private subjectService: SubjectItemService) {}
+  constructor(private subjectService: SubjectService) {}
   ngOnInit(): void {
     this.loadNewPage();
   }

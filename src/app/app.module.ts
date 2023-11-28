@@ -59,7 +59,7 @@ import { PageSubjectListComponent } from './ui/page-subject-list/page-subject-li
     PageStudentListComponent,
     TeacherReferentListComponent,
     PageSubjectListComponent,
-    SubjectListComponent
+    SubjectListComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +73,6 @@ import { PageSubjectListComponent } from './ui/page-subject-list/page-subject-li
   bootstrap: [AppComponent],
 })
 export class AppModule {
-
   constructor(library: FaIconLibrary) {
     library.addIconPacks(fas);
   }

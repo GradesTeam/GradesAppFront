@@ -1,1 +1,20 @@
-<p>instrument-details works!</p>
+
+<div class="container-fluid w-75 m-auto">
+    <button class="btn" (click)="backPage()"><fa-icon [icon]="['fas', 'circle-arrow-left']" class="fs-3"></fa-icon></button>
+    <h2 class="h2">{{instrumento.nombre}}</h2>
+    <hr />
+    <table class="table table-striped table-secondary table-hover table-responsive">
+        <thead>
+            <tr class="table-dark">
+                <th scope="col">Alumno</th>
+                <th scope="col" *ngFor="let ref of referentes">{{ref.codReferente}}</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+                <tr *ngFor="let alumno of alumnos">
+                    <th scope="row">{{ alumno.nombre }}</th>
+                    <td *ngFor="let calf of calificaciones">{{calf.calificacion}}</td>
+                </tr>
+        </tbody>
+    </table>
+</div>

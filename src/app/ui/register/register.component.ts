@@ -35,7 +35,6 @@ export class RegisterComponent {
 
     this.userService.createStudent(this.username, this.date, this.email, this.password, this.repeatPassword).subscribe({
       next: data => {
-        alert(this.date)
         window.location.href = `${environment.localHost}login`;
       },
 

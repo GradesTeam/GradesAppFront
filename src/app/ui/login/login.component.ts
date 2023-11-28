@@ -22,8 +22,8 @@ export class LoginComponent {
         //this.tokenStorage.saveToken(data.accessToken);
         this.tokenService.saveToken(data.token);
         this.tokenService.saveUser(data);
-        sessionStorage.setItem('user', data);
-        window.location.href = `${environment.localHost}teacher`;
+        sessionStorage.setItem('rol', data.rol);
+        window.location.href = `${environment.localHost}subjects`
       },
       error: err => {
         this.errorMessage = "Las credenciales son inválidas";

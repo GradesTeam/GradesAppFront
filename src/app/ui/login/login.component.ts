@@ -21,6 +21,8 @@ export class LoginComponent {
         //this.tokenStorage.saveToken(data.accessToken);
         sessionStorage.setItem('token', data.token);
         sessionStorage.setItem('user', data);
+        sessionStorage.setItem('id', data.id);
+        sessionStorage.setItem('rol', data.rol);
         window.location.href = `${environment.localHost}student`
       },
       error: err => {

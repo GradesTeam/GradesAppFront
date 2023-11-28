@@ -35,6 +35,7 @@ import { StudentListComponent } from './component/student-list/student-list.comp
 import { PageStudentListComponent } from './ui/page-student-list/page-student-list.component';
 import { TeacherReferentListComponent } from './component/teacher-referent-list/teacher-referent-list.component';
 import { PageSubjectListComponent } from './ui/page-subject-list/page-subject-list.component';
+import { AdminSectionComponent } from './sections/admin-section/admin-section.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { PageSubjectListComponent } from './ui/page-subject-list/page-subject-li
     TeacherReferentListComponent,
     PageSubjectListComponent,
     SubjectListComponent,
+    AdminSectionComponent
   ],
   imports: [
     BrowserModule,

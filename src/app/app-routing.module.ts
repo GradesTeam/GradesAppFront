@@ -10,25 +10,30 @@ import { StudentMarksComponent } from './ui/student-marks/student-marks.componen
 import { InstrumentDetailsComponent } from './ui/instrument-details/instrument-details.component';
 import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
 import { StudentListComponent } from './component/student-list/student-list.component';
+import { AdminSectionComponent } from './sections/admin-section/admin-section.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'student', component: PageSubjectListComponent },
-  { path: 'student/subject/:id', component: StudentMarksComponent },
-  { path: 'teacher', component: PageSubjectListComponent },
-  { path: 'teacher/students', component: StudentListComponent },
-  { path: 'teacher/subject/:id', component: SubjectDetailsComponent },
   {
-    path: 'teacher/subject/:id/instruments',
-    component: InstrumentListComponent,
+    path: '', component: AdminSectionComponent, children: [
+      { path: 'student', component: PageSubjectListComponent },
+      { path: 'student/subject/:id', component: StudentMarksComponent },
+      { path: 'teacher', component: PageSubjectListComponent },
+      { path: 'teacher/students', component: StudentListComponent },
+      { path: 'teacher/subject/:id', component: SubjectDetailsComponent },
+      {
+        path: 'teacher/subject/:id/instruments',
+        component: InstrumentListComponent,
+      },
+      { path: 'teacher/student/:id', component: StudentDetailsComponent },
+      {
+        path: 'teacher/subject/instrument/:id',
+        component: InstrumentDetailsComponent,
+      },
+      { path: '', redirectTo: '/login', pathMatch: 'full' },
+    ]
   },
-  { path: 'teacher/student/:id', component: StudentDetailsComponent },
-  {
-    path: 'teacher/subject/instrument/:id',
-    component: InstrumentDetailsComponent,
-  },
-  { path: '', component: PageSubjectListComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
@@ -36,4 +41,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -23,7 +23,7 @@ export class LoginComponent {
         sessionStorage.setItem('user', data);
         sessionStorage.setItem('id', data.id);
         sessionStorage.setItem('rol', data.rol);
-        window.location.href = `${environment.localHost}student`
+        window.location.href = `${environment.localHost}subjects`
       },
       error: err => {
         this.errorMessage = "Las credenciales son inválidas";

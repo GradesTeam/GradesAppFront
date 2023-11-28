@@ -25,7 +25,7 @@ const routes: Routes = [
   },
   { path: 'teacher/student/:id', component: StudentDetailsComponent },
   {
-    path: 'teacher/subject/instrument/:id',
+    path: 'teacher/subject/:id_asig/instrument/:id',
     component: InstrumentDetailsComponent,
   },
   { path: '', component: PageSubjectListComponent },

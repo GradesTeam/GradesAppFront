@@ -3,7 +3,7 @@
 export interface CreatedAlumnoResponse {
     nombre:          string;
     apellido:        string;
-    fechaNacimiento: Date;
+    fechaNacimiento: string;
     telefono:        string;
     email:           string;
 }

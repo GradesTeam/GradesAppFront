@@ -16,17 +16,19 @@ export class AlumnoService {
   constructor(private http: HttpClient) { }
 
   getAlumnoProfesor(id: string): Observable<AlumnoProfesorListResponse>{
-    return this.http.get<AlumnoProfesorListResponse>(`${environment.apiBaseUrl}/${API_BASE_URL}/${id}/alumnos`);
+    return this.http.get<AlumnoProfesorListResponse>(`${environment.apiBaseUrl}${API_BASE_URL}/${id}/alumnos`);
   }
 
   createAlumno(alumno: POSTAlumnoDTO):Observable<CreatedAlumnoResponse>{
-    return this.http.post<CreatedAlumnoResponse>(`${environment.apiBaseUrl}/alumno/`,
+    return this.http.post<CreatedAlumnoResponse>(`${environment.apiBaseUrl}alumno/`,
     {
-      nombre: alumno.nombre,
-      apellidos: alumno.apellidos,
-      fechaNacimiento: alumno.fechaNacimiento,
-      email: alumno.email,
-      telefono: alumno.telefono
+      "nombre": alumno.nombre,
+      "apellidos": alumno.apellidos,
+      "fechaNacimiento": alumno.fechaNacimiento,
+      "email": alumno.email,
+      "telefono": alumno.telefono,
+      "username": alumno.username,
+      "password": alumno.password
     });
   }
 }

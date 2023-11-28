@@ -1,12 +1,12 @@
 export class POSTAlumnoDTO{
     nombre: string
     apellidos: string
-    fechaNacimiento: Date
+    fechaNacimiento: string
     email: string
     telefono: string
     username: string
     password: string
-    constructor(nombre:string, apellidos:string, fechaNacimiento: Date, email:string, telefono: string, username: string, password: string){
+    constructor(nombre:string, apellidos:string, fechaNacimiento: string, email:string, telefono: string, username: string, password: string){
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.fechaNacimiento = fechaNacimiento;

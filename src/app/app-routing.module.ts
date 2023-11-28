@@ -11,6 +11,7 @@ import { InstrumentDetailsComponent } from './ui/instrument-details/instrument-d
 import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
 import { StudentListComponent } from './component/student-list/student-list.component';
 import { AdminSectionComponent } from './sections/admin-section/admin-section.component';
+import { PageStudentListComponent } from './ui/page-student-list/page-student-list.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -29,6 +30,10 @@ const routes: Routes = [
       { path: 'teacher/student/:id', component: StudentDetailsComponent },
       {
         path: 'teacher/subject/instrument/:id',
+        component: InstrumentDetailsComponent,
+      },
+      {
+        path: 'teacher/subject/:id_asig/instrument/:id',
         component: InstrumentDetailsComponent,
       },
       { path: '', redirectTo: '/login', pathMatch: 'full' },

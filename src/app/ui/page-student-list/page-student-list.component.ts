@@ -17,7 +17,7 @@ export class PageStudentListComponent implements OnInit{
   page = 0;
   nombre: string = '';
   apellidos: string = '';
-  fechaNacimiento!:NgbDateStruct;
+  fechaNacimiento:NgbDateStruct = { year: 2023, month: 1, day: 1 };
   email: string = '';
   telefono: string = '';
   username: string = '';
@@ -44,8 +44,6 @@ export class PageStudentListComponent implements OnInit{
 		this.modalService.open(content);
 	}
   
-
-
   crearAlumno(){
     let getDia = this.fechaNacimiento.day.toString().split('').length > 1? this.fechaNacimiento.day.toString(): "0"+this.fechaNacimiento.day;
     let getMes = this.fechaNacimiento.month.toString().split('').length > 1? this.fechaNacimiento.month.toString(): "0"+this.fechaNacimiento.month;
@@ -57,20 +55,32 @@ export class PageStudentListComponent implements OnInit{
     this.alumnoService.createAlumno(nuevoAlumno).subscribe({
       next: resp => {
         window.location.href = "http://localhost:4200/teacher/"+this.teacherId+"/student";
-      }, error: error =>{
-        if(error.status = 400){
-          this.nombreError = '';
-          this.apellidosError = '';
-          this.fechaNacimientoError = '';
-          this.emailError = '';
-          this.telefonoError = '';
-          this.usernameError = '';
-          this.passwordError = '';
-          let badRequest = error;
-          let errors = badRequest.error.body.fields_errors;
+      }, error: errorG =>{
+        if(errorG.status = 400){
+          let errors = errorG.error.body.fields_errors;
           errors.forEach((erro: {field: any; message: any;}) => {
-            if(erro.field == ''){
-              
+            switch(erro.field){
+              case "nombre":
+                this.nombreError = erro.message;
+                break;
+              case "apellidos":
+                this.apellidosError = erro.message;
+                break;
+              case "fechaNacimiento":
+                this.fechaNacimientoError = erro.message;
+                break;
+              case "email":
+                this.emailError = erro.message;
+                break;
+              case "telefono":
+                this.telefonoError = erro.message;
+                break;
+              case "username":
+                this.usernameError = erro.message;
+                break;
+              case "password":
+                this.passwordError = erro.message;
+                break;
             }
           });
         }

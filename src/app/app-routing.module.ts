@@ -18,10 +18,10 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   {
     path: '', component: AdminSectionComponent, children: [
-      { path: 'student', component: PageSubjectListComponent },
+      { path: 'subjects', component: PageSubjectListComponent },
       { path: 'student/subject/:id', component: StudentMarksComponent },
-      { path: 'teacher', component: PageSubjectListComponent },
-      { path: 'teacher/students', component: StudentListComponent },
+      { path: 'teachers', component: PageSubjectListComponent },
+      { path: 'teacher/:id/students', component: StudentListComponent },
       { path: 'teacher/subject/:id', component: SubjectDetailsComponent },
       {
         path: 'teacher/subject/:id/instruments',

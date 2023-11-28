@@ -8,6 +8,7 @@ import { AllInstrumentoDTO } from '../../models/instrumento-list.interface';
 })
 export class TeacherInstrumentItemComponent {
   @Input() instrument!: AllInstrumentoDTO;
+  @Input() asignaturaId !: string;
   
   popoverClicked(event: MouseEvent) {
     event.stopPropagation();

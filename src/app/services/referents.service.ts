@@ -17,12 +17,12 @@ export class ReferentsService {
     page: number
   ): Observable<ReferenteListResponse> {
     return this.http.get<ReferenteListResponse>(
-      `${environment.apiBaseUrl}/teacher/asignatura/${id}/referentes?page=${page}`
+      `${environment.apiBaseUrl}teacher/asignatura/${id}/referentes?page=${page}`
     );
   }
   createReferente(id: string, newRef: POSTReferenteDTO): Observable<any> {
     return this.http.post<CreatedReferenteResponse>(
-      `${environment.apiBaseUrl}/teacher/asignatura/${id}/referente`,
+      `${environment.apiBaseUrl}teacher/asignatura/${id}/referente`,
       {
         codReferente: newRef.codReferente,
         descripcion: newRef.descripcion,

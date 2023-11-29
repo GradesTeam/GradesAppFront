@@ -15,7 +15,7 @@ export class PageSubjectListComponent implements OnInit {
   page = 0;
   nombre: string = '';
   horas: number = 0;
-  idProfesor: string = '';
+
   idProfeS: string = '';
   descripcion: string = '';
   color: string = '';
@@ -34,8 +34,8 @@ export class PageSubjectListComponent implements OnInit {
   ngOnInit(): void {
     this.getProfesores();
   }
-  capturar() {
-    this.idProfeS = this.idProfesor;
+  capturar(id: any) {
+    this.idProfeS = id;
     debugger;
   }
   open(content: TemplateRef<any>) {
@@ -58,7 +58,7 @@ export class PageSubjectListComponent implements OnInit {
     debugger;
     this.asignaturaService.createdAsignatura(newAsig).subscribe({
       next: (data) => {
-        window.location.href = 'http://localhost:4200/teacher/subject/';
+        window.location.href = 'http://localhost:4200/subjects/';
       },
       error: (err) => {
         if ((err.status = 404)) {

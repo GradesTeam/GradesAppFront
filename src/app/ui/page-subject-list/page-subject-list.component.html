@@ -76,8 +76,8 @@
         <select
           class="form-select"
           aria-label="Default select example"
-          [value]="idProfesor"
-          (change)="capturar()"
+          (change)="capturar(profe.value)"
+          #profe
         >
           <option
             [value]="profe.id"

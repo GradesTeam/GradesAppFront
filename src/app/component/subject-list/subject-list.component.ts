@@ -9,17 +9,26 @@ import { SubjectA, SubjectResponse } from '../../models/subject.interface';
 })
 export class SubjectListComponent implements OnInit {
   subjectList!: SubjectA[];
-  subjectInfo!: SubjectResponse;
-  page: number = 0;
+  page = 0;
+  count = 0;
+  pageSize = 0;
+
   constructor(private subjectService: SubjectService) {}
+
   ngOnInit(): void {
     this.loadNewPage();
   }
+
   loadNewPage() {
-    this.subjectService.getAsignaturas(this.page).subscribe((resp) => {
+    this.subjectService.getAsignaturas(this.page - 1).subscribe((resp) => {
       this.subjectList = resp.content;
-      console.log(this.subjectList);
-      this.subjectInfo = resp;
+      this.pageSize = resp.size;
+      if (resp.totalElements > 1000) {
+        this.count = 10000;
+      } else {
+        this.count = resp.totalElements;
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 }

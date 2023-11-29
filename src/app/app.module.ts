@@ -3,7 +3,7 @@ import {
   BrowserModule,
   provideClientHydration,
 } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './ui/login/login.component';
@@ -38,6 +38,10 @@ import { AdminSectionComponent } from './sections/admin-section/admin-section.co
 import { TeacherItemComponent } from './component/teacher-item/teacher-item.component';
 import { TeacherListComponent } from './component/teacher-list/teacher-list.component';
 import { PageTeacherListComponent } from './ui/page-teacher-list/page-teacher-list.component';
+import { TeacherCalificacionTableComponent } from './component/teacher-calificacion-table/teacher-calificacion-table.component';
+import { LoggerInterceptor, authInterceptorProviders } from './logger.interceptor';
+import { RemoveWrapperInterceptor } from './RemoveWrapperInterceptor';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -65,7 +69,8 @@ import { PageTeacherListComponent } from './ui/page-teacher-list/page-teacher-li
     AdminSectionComponent,
     TeacherItemComponent,
     TeacherListComponent,
-    PageTeacherListComponent
+    PageTeacherListComponent,
+    TeacherCalificacionTableComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +80,11 @@ import { PageTeacherListComponent } from './ui/page-teacher-list/page-teacher-li
     HttpClientModule,
     FormsModule,
   ],
-  providers: [provideClientHydration()],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: LoggerInterceptor, multi: true }, provideHttpClient(withFetch()), {
+    provide: HTTP_INTERCEPTORS,
+    useClass: RemoveWrapperInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {

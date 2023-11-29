@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AlumnoP } from '../../models/alumno-profesor-list.inteface';
+import { Alumno } from '../../models/get-alumno-item.interface';
 
 @Component({
   selector: 'app-student-item',
@@ -9,6 +10,9 @@ import { AlumnoP } from '../../models/alumno-profesor-list.inteface';
 export class StudentItemComponent {
 
   @Input() alumno!: AlumnoP;
-  @Output() editClicked: EventEmitter<string> = new EventEmitter<string>();
+  @Output() editarAlumno: EventEmitter<string> = new EventEmitter<string>();
 
+  onEditarClick() {
+    this.editarAlumno.emit(this.alumno.id);
+  }
 }

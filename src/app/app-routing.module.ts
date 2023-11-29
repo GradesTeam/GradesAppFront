@@ -23,7 +23,7 @@ const routes: Routes = [
       { path: 'subjects', component: PageSubjectListComponent },
       { path: 'student/subject/:id', component: StudentMarksComponent },
       { path: 'teachers', component: PageTeacherListComponent },
-      { path: 'teacher/:id/students', component: StudentListComponent },
+      { path: 'teacher/:id/students', component: PageStudentListComponent },
       { path: 'teacher/subject/:id', component: SubjectDetailsComponent },
       {
         path: 'teacher/subject/:id/instruments',

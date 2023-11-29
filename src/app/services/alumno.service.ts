@@ -5,6 +5,7 @@ import { AlumnoProfesorListResponse } from '../models/alumno-profesor-list.intef
 import { environment } from '../enviroment/enviroment';
 import { POSTAlumnoDTO } from '../models/create-alumno.interface';
 import { CreatedAlumnoResponse } from '../models/create-alumno-request.interface';
+import { Alumno } from '../models/get-alumno-item.interface';
 
 const API_BASE_URL = 'profesor';
 
@@ -17,6 +18,10 @@ export class AlumnoService {
 
   getAlumnoProfesor(id: string): Observable<AlumnoProfesorListResponse>{
     return this.http.get<AlumnoProfesorListResponse>(`${environment.apiBaseUrl}${API_BASE_URL}/${id}/alumnos`);
+  }
+
+  getAlumnoDetails(id: string): Observable<Alumno>{
+    return this.http.get<Alumno>(`${environment.apiBaseUrl}alumno/${id}`);
   }
 
   createAlumno(alumno: POSTAlumnoDTO):Observable<CreatedAlumnoResponse>{

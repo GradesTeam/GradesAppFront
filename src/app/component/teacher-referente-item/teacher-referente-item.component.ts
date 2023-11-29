@@ -1,4 +1,4 @@
-import { Component, Input, TemplateRef, inject } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef, inject } from '@angular/core';
 import { AllReferenteDTO } from '../../models/referente-list.interface';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ReferentsService } from '../../services/referents.service';
@@ -9,20 +9,21 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './teacher-referente-item.component.html',
   styleUrl: './teacher-referente-item.component.css'
 })
-export class TeacherReferenteItemComponent {
+export class TeacherReferenteItemComponent{
   @Input() referente !: AllReferenteDTO;
+  
   asignaturaId: string = "";
   route: ActivatedRoute = inject(ActivatedRoute);
   desc: string = '';
   descErr: string = "";
   codRefEdit: string = "";
   descEdit: string = "";
-   constructor(private modalService: NgbModal, private referenteService:ReferentsService){
+
+  constructor(private modalService: NgbModal, private referenteService:ReferentsService){
     this.codRefEdit = this.referente.codReferente;
     this.descEdit = this.referente.descripcion;
     this.asignaturaId = this.route.snapshot.params['id'];
-   }
-
+  }
   open(content: TemplateRef<any>) {
     this.modalService.open(content);
   }

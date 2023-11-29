@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import {
   BrowserModule,
-  provideClientHydration,
 } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -39,9 +38,8 @@ import { TeacherItemComponent } from './component/teacher-item/teacher-item.comp
 import { TeacherListComponent } from './component/teacher-list/teacher-list.component';
 import { PageTeacherListComponent } from './ui/page-teacher-list/page-teacher-list.component';
 import { TeacherCalificacionTableComponent } from './component/teacher-calificacion-table/teacher-calificacion-table.component';
-import { LoggerInterceptor, authInterceptorProviders } from './logger.interceptor';
+import { LoggerInterceptor } from './logger.interceptor';
 import { RemoveWrapperInterceptor } from './RemoveWrapperInterceptor';
-import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [

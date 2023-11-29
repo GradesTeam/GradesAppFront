@@ -8,10 +8,10 @@
 			<div class="mb-3">
                 <div class="mb-3">
                     <label for="codRef" class="form-label">Introduce el código del referente</label>
-                    <input type="text" class="form-control " id="codRef" name="codRef" aria-describedby="codRef" [(ngModel)]="codRef" required>
+                    <input type="text" class="form-control" id="codRef" name="codRef" aria-describedby="codRef" [(ngModel)]="codRef" required>
                     <div id="crError" class="text-danger">{{codRefErrNE}}</div>
                     <div id="crError" class="text-danger">{{codRefErrR}}</div>
-                </div>
+                  </div>
                   <div class="mb-3">
                     <label for="descRef" class="form-label">Introduce la descripción del referente</label>
                     <input type="text" class="form-control" id="descRef" name="descRef" required [(ngModel)]="desc">
@@ -40,4 +40,3 @@
 <nav class="d-flex justify-content-center mt-2">
     <ngb-pagination [collectionSize]="referenteInfo.totalElements" [(page)]="page" [maxSize]="referenteInfo.size" [boundaryLinks]="true" />
 </nav>
-

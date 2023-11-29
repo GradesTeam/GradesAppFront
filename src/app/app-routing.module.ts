@@ -11,8 +11,6 @@ import { InstrumentDetailsComponent } from './ui/instrument-details/instrument-d
 import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
 import { StudentListComponent } from './component/student-list/student-list.component';
 import { AdminSectionComponent } from './sections/admin-section/admin-section.component';
-import { PageStudentListComponent } from './ui/page-student-list/page-student-list.component';
-import { TeacherListComponent } from './component/teacher-list/teacher-list.component';
 import { PageTeacherListComponent } from './ui/page-teacher-list/page-teacher-list.component';
 
 const routes: Routes = [

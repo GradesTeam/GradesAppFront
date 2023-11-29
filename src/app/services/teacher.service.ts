@@ -4,6 +4,7 @@ import { TeacherListResponse } from '../models/teacher-list-response';
 import { Observable } from 'rxjs';
 import { environment } from '../enviroment/enviroment';
 import { TeacherResponse } from '../models/teacher-response.interface';
+import { TeacherEditResponse } from '../models/teacher-edit-response-interface';
 
 @Injectable({
   providedIn: 'root',
@@ -43,6 +44,16 @@ export class TeacherService {
         repeatPassword: repeatPassword,
         password: password,
       }
+    );
+  }
+
+  editTeacher(id: any, titulacion: any, name: any, surname: any): Observable<TeacherEditResponse>{
+    return this.http.put<TeacherEditResponse>(`${environment.apiBaseUrl}profesor/${id}/edit`,
+    {
+      "apellidos": surname,
+      "titulacion": titulacion,
+      "nombre": name
+  }
     );
   }
 }

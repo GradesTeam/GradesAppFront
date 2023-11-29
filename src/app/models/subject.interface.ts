@@ -10,6 +10,7 @@ export interface SubjectResponse {
 }
 
 export interface SubjectA {
+  id: string;
   asigNombre: string;
   asigDescripcion: string;
   nombreProfesor: string;

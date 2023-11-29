@@ -86,7 +86,6 @@ import { TeacherReferenteItemComponent } from './component/teacher-referente-ite
   bootstrap: [AppComponent],
 })
 export class AppModule {
-
   constructor(library: FaIconLibrary) {
     library.addIconPacks(fas);
   }

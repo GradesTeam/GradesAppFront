@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { POSTReferenteDTO } from '../models/create-referente.interface';
 import { CreatedReferenteResponse } from '../models/create-referente-request.interface';
 import { ReferenteDetailsResponse } from '../models/referente-details.interface';
+import { ReferenteInstrumentoResponse } from '../models/referente-instrumento.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -42,6 +43,9 @@ export class ReferentsService {
         },
       }
     );
+  }
+  getReferentesInstrumento(id:string):Observable<ReferenteInstrumentoResponse>{
+    return this.http.get<ReferenteInstrumentoResponse>(`${environment.apiBaseUrl}student/instrumento/${id}/referentes`);
   }
   deleteRef(id:string):Observable<any>{
     return this.http.delete<any>(`${environment.apiBaseUrl}teacher/referente/${id}`);

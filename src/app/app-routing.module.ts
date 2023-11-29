@@ -24,7 +24,7 @@ const routes: Routes = [
       { path: 'teacher/:id/students', component: StudentListComponent },
       { path: 'teacher/subject/:id', component: SubjectDetailsComponent },
       {
-        path: 'teacher/subject/:id/instruments',
+        path: 'student/instrument/:id',
         component: InstrumentListComponent,
       },
       { path: 'teacher/student/:id', component: StudentDetailsComponent },

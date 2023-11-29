@@ -40,6 +40,9 @@ import { TeacherCalificacionTableComponent } from './component/teacher-calificac
 import { LoggerInterceptor } from './logger.interceptor';
 import { RemoveWrapperInterceptor } from './RemoveWrapperInterceptor';
 import { TeacherReferenteItemComponent } from './component/teacher-referente-item/teacher-referente-item.component';
+import { SubjectItemTeacherComponent } from './component/subject-item-teacher/subject-item-teacher.component';
+import { SubjectListTeacherComponent } from './component/subject-list-teacher/subject-list-teacher.component';
+import { PageAsignaturaTeacherComponent } from './ui/page-asignatura-teacher/page-asignatura-teacher.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +71,10 @@ import { TeacherReferenteItemComponent } from './component/teacher-referente-ite
     TeacherListComponent,
     PageTeacherListComponent,
     TeacherCalificacionTableComponent,
-    TeacherReferenteItemComponent
+    TeacherReferenteItemComponent,
+    SubjectItemTeacherComponent,
+    SubjectListTeacherComponent,
+    PageAsignaturaTeacherComponent
   ],
   imports: [
     BrowserModule,

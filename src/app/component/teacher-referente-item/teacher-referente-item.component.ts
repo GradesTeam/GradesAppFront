@@ -22,7 +22,6 @@ export class TeacherReferenteItemComponent implements OnInit{
     
   }
   ngOnInit(): void {
-    this.asignaturaId = this.route.snapshot.params['id'];
     this.codRefEdit = this.referente.codReferente;
     this.descEdit = this.referente.descripcion;
   }

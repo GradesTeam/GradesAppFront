@@ -24,7 +24,9 @@
         <app-teacher-list [list]="teacherList"></app-teacher-list>
     </div>
     <div class="pagination justify-content-center">
-        <ngb-pagination [collectionSize]="70" [(page)]="page" aria-label="Default pagination" />
+        <ngb-pagination class="custom-pagination" [maxSize]="2" [boundaryLinks]="true" [collectionSize]="count"
+            [(page)]="page" [pageSize]="20" (pageChange)="loadNewPage()"
+            aria-label="Default pagination"></ngb-pagination>
     </div>
 </div>
 

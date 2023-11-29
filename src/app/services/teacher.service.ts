@@ -12,6 +12,10 @@ export class TeacherService {
   constructor(private http: HttpClient) { }
 
   getAllTeacher(): Observable<TeacherListResponse> {
-    return this.http.get<TeacherListResponse>(`${environment.apiBaseUrl}profesor/`);
+    return this.http.get<TeacherListResponse>(`${environment.apiBaseUrl}profesor`);
+  }
+
+  getTeacherListByPage(page: number): Observable<TeacherListResponse> {
+    return this.http.get<TeacherListResponse>(`${environment.apiBaseUrl}profesor?page=` + page);
   }
 }

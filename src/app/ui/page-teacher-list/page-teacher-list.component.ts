@@ -26,6 +26,7 @@ export class PageTeacherListComponent {
   passwordError: string = '';
   teacherList: Teacher[] = [];
   page = 0;
+  count = 0;
 
   constructor(private teacherService: TeacherService, private modalService: NgbModal) { }
 
@@ -40,5 +41,19 @@ export class PageTeacherListComponent {
   }
 
   createTeacher() { }
+
+  loadNewPage() {
+    this.teacherService.getTeacherListByPage(this.page).subscribe((resp) => {
+      this.teacherList = resp.content;
+      if (resp.totalElements > 1000) {
+        this.count = 10000;
+      } else {
+        this.count = resp.totalElements;
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    )
+  }
 
 }

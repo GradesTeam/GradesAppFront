@@ -13,4 +13,8 @@ export class TeacherItemComponent {
   popoverClicked(event: MouseEvent) {
     event.stopPropagation();
   }
+
+  getChar() {
+    return this.teacher.nombre.charAt(0);
+  }
 }

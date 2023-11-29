@@ -42,7 +42,7 @@ export class PageSubjectListComponent implements OnInit {
     this.modalService.open(content);
   }
   getProfesores() {
-    this.profesoresService.getTeachers(this.page).subscribe((resp) => {
+    this.profesoresService.getAllTeacher().subscribe((resp) => {
       this.profesorList = resp.content;
     });
   }

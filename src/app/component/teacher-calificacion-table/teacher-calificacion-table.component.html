@@ -10,8 +10,8 @@
                 <tr *ngFor="let alumno of alumnos;index as i_alumn">
                     <th scope="row">{{ alumno.nombre }}</th>
                     <td *ngFor="let ref of referentes;index as i_ref">
-                    <div *ngIf="calificaciones[i_ref]">{{calificaciones[i_ref].calificacion}}</div>
-                    <button *ngIf="!calificaciones[i_ref]" class="btn btn-success rounded-circle d-flex justify-content-center" (click)="open(addModal, i_ref, i_alumn)"><fa-icon [icon]="['fas', 'plus']" class="text-white "></fa-icon></button>
+                        <div *ngIf="calificaciones[i_ref]" class="d-flex justify-content-between">{{calificaciones[i_ref].calificacion}} <button class="btn btn-danger rounded-circle d-flex justify-content-center" (click)="delete(calificaciones[i_ref].id)"><fa-icon [icon]="['fas', 'trash']" class="text-white "></fa-icon></button> </div>
+                        <button *ngIf="!calificaciones[i_ref]" class="btn btn-success rounded-circle d-flex justify-content-center" (click)="open(addModal, i_ref, i_alumn)"><fa-icon [icon]="['fas', 'plus']" class="text-white "></fa-icon></button>
                     </td>
                 </tr>
         </tbody>

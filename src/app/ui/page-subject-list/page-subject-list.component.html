@@ -55,7 +55,7 @@
         </div>
       </div>
       <div class="mb-3">
-        <label for="descripcion">descripcion</label>
+        <label for="descripcion">Descripción</label>
         <div class="form-group">
           <input
             id="descripcion"
@@ -72,7 +72,17 @@
         </div>
       </div>
       <div class="mb-3">
-        <label for="color">Color para la asignatura</label>
+        <label for="profesor">Profesor</label>
+        <select class="form-select" aria-label="Default select example" *ngFor="let profe of profesorList">
+          <option selected>Elija un profesor</option>
+          <option [value]="profe.id">{{profe.nombre}}</option>
+        </select>
+        <div id="idProError" class="text-danger mx-3">
+          {{ idProError }}
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="color">Color</label>
         <div class="form-group">
           <input
             id="color"

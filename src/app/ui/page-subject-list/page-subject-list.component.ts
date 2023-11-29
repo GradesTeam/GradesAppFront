@@ -1,14 +1,16 @@
-import { Component, TemplateRef } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { SubjectA } from '../../models/subject.interface';
 import { PostAsignaturaDTO } from '../../models/created-asignatura.interface';
 import { SubjectService } from '../../services/subject.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TeacherItem } from '../../models/teacher-list.interface';
+import { TeacherService } from '../../services/teacher.service';
 @Component({
   selector: 'app-page-subject-list',
   templateUrl: './page-subject-list.component.html',
   styleUrl: './page-subject-list.component.css',
 })
-export class PageSubjectListComponent {
+export class PageSubjectListComponent implements OnInit{
   SubjectAList: SubjectA[] = [];
   page = 0;
   nombre: string = '';
@@ -21,14 +23,22 @@ export class PageSubjectListComponent {
   idProError: string = '';
   descripError: string = '';
   colorError: string = '';
+  profesorList!: TeacherItem[];
 
 
-  constructor(private asignaturaService: SubjectService, private modalService: NgbModal) {}
+  constructor(private asignaturaService: SubjectService, private modalService: NgbModal, private profesoresService: TeacherService) {}
+  ngOnInit(): void {
+    this.getProfesores();
+  }
 
   open(content: TemplateRef<any>){
     this.modalService.open(content);
   }
-
+  getProfesores(){
+    this.profesoresService.getTeachers(this.page).subscribe(resp=>{
+      this.profesorList= resp.content;
+    })
+  }
   createdAsigna() {
     let newAsig: PostAsignaturaDTO = new PostAsignaturaDTO(
       this.nombre,

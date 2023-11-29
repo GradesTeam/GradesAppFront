@@ -5,6 +5,7 @@ import { environment } from '../enviroment/enviroment';
 import { Observable } from 'rxjs';
 import { POSTReferenteDTO } from '../models/create-referente.interface';
 import { CreatedReferenteResponse } from '../models/create-referente-request.interface';
+import { ReferenteDetailsResponse } from '../models/referente-details.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -19,6 +20,14 @@ export class ReferentsService {
     return this.http.get<ReferenteListResponse>(
       `${environment.apiBaseUrl}teacher/asignatura/${id}/referentes?page=${page}`
     );
+  }
+  getReferenteById(id:string):Observable<ReferenteDetailsResponse>{
+    return this.http.get<ReferenteDetailsResponse>(`${environment.apiBaseUrl}teacher/referente/${id}`);
+  }
+  editReferente(idAsig:string, id:String, desc:string):Observable<ReferenteDetailsResponse>{
+    return this.http.put<ReferenteDetailsResponse>(`${environment.apiBaseUrl}teacher/asignatura/${idAsig}/referente/${id}`, {
+      descripcion: desc
+    })
   }
   createReferente(id: string, newRef: POSTReferenteDTO): Observable<any> {
     return this.http.post<CreatedReferenteResponse>(

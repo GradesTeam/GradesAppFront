@@ -21,7 +21,7 @@ export class TeacherReferenteItemComponent implements OnInit{
   descEdit: string = "";
 
   constructor(private modalService: NgbModal, private referenteService:ReferentsService, private route: ActivatedRoute){
-    
+    this.asignaturaId = this.route.snapshot.params['id'];
   }
   ngOnInit(): void {
     this.codRefEdit = this.referente.codReferente;
@@ -49,10 +49,7 @@ export class TeacherReferenteItemComponent implements OnInit{
   delete(){
     this.referenteService.deleteRef(this.referente.codReferente).subscribe({
       next: data=>{
-        window.location.href =
-          'http://localhost:4200/teacher/subject/' +
-          this.asignaturaId +
-          '?instrumento=false';
+        window.location.href =`http://localhost:4200/teacher/subject/${this.asignaturaId}?instrumento=false`;
       },error: err=>{
         if(err.status == 404){
           window.location.href = `${environment.localHost}not-found`;

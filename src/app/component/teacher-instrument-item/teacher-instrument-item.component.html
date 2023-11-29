@@ -8,12 +8,12 @@
 			<div class="mb-3">
                 <div class="mb-3">
                     <label for="name" class="form-label">Introduce el nombre del instrumento</label>
-                    <input type="text" class="form-control" id="name" name="name"  [value]="nameEdit" aria-describedby="codRef" [(ngModel)]="name" required>
+                    <input type="text" class="form-control" id="name" name="name"  [value]="nameEdit" [placeholder]="nameEdit" aria-describedby="codRef" [(ngModel)]="name" required>
                     <div id="crError" class="text-danger">{{nameErr}}</div>
                   </div>
                   <div class="mb-3">
                     <label for="content" class="form-label">Introduce los contenidos del insturmento</label>
-                    <input type="text" class="form-control" id="content" name="content" [value]="contentEdit" required [(ngModel)]="contents">
+                    <input type="text" class="form-control" id="content" name="content" [value]="contentEdit" [placeholder]="contentEdit" required [(ngModel)]="contents">
                     <div id="dcError" class="text-danger">{{contentErr}}</div>
                   </div>
                   <div class="mb-3">

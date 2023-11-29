@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.compon
 import { AdminSectionComponent } from './sections/admin-section/admin-section.component';
 import { PageTeacherListComponent } from './ui/page-teacher-list/page-teacher-list.component';
 import { PageStudentListComponent } from './ui/page-student-list/page-student-list.component';
+import { PageAlumnoAsignaturasComponent } from './ui/page-alumno-asignaturas/page-alumno-asignaturas.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
     path: '', component: AdminSectionComponent, children: [
       { path: 'subjects', component: PageSubjectListComponent },
       { path: 'student/subject/:id', component: StudentMarksComponent },
+      { path: 'student/:id/subjects', component: PageAlumnoAsignaturasComponent },
       { path: 'teachers', component: PageTeacherListComponent },
       { path: 'teacher/:id/students', component: PageStudentListComponent },
       { path: 'teacher/subject/:id', component: SubjectDetailsComponent },

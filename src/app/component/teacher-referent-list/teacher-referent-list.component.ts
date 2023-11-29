@@ -24,6 +24,8 @@ export class TeacherReferentListComponent implements OnInit{
   codRefR:string ="";
   descErr: string = "";
   codRefErrR: any;
+  codRefEdit: string = "";
+  descEdit: string = "";
 
   constructor(private referenteService: ReferentsService, private modalService: NgbModal){
     this.asignaturaId = this.route.snapshot.params['id'];
@@ -36,6 +38,7 @@ export class TeacherReferentListComponent implements OnInit{
     this.referenteService.getReferentesFromAsignatura(this.asignaturaId, this.page).subscribe(answ => {
       this.referenteList = answ.content;
       this.referenteInfo = answ;
+      debugger;
     });
   }
 

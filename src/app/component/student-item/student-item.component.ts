@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AlumnoP } from '../../models/alumno-profesor-list.inteface';
 
 @Component({
@@ -9,4 +9,6 @@ import { AlumnoP } from '../../models/alumno-profesor-list.inteface';
 export class StudentItemComponent {
 
   @Input() alumno!: AlumnoP;
+  @Output() editClicked: EventEmitter<string> = new EventEmitter<string>();
+
 }

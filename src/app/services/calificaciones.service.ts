@@ -4,6 +4,7 @@ import { CalificacionesInstrumentoResponse } from '../models/calificaciones-inst
 import { Observable } from 'rxjs/internal/Observable';
 import { environment } from '../enviroment/enviroment';
 import { POSTCalificacionDTO } from '../models/create-calificacion.interface';
+import { AlumnoDetailsResponse } from '../models/alumno-details.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,8 @@ export class CalificacionesService {
       idAlumno: newCalf.idAlumno,
       calificacion: newCalf.calificacion
     });
+  }
+  deleteCalificacion(id:string):Observable<AlumnoDetailsResponse[]>{
+    return this.http.delete<AlumnoDetailsResponse[]>(`${environment.apiBaseUrl}teacher/calificacion/${id}`);
   }
 }

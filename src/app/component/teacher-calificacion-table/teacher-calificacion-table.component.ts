@@ -5,6 +5,10 @@ import { Alumno, Calificacion, Referente } from '../../models/calificaciones-ins
 import { ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { POSTCalificacionDTO } from '../../models/create-calificacion.interface';
+import { AlumnoService } from '../../services/alumno.service';
+import { AlumnoDetailsResponse } from '../../models/alumno-details.interface';
+import { error } from 'console';
+import { Duplex } from 'stream';
 
 @Component({
   selector: 'app-teacher-calificacion-table',
@@ -14,7 +18,7 @@ import { POSTCalificacionDTO } from '../../models/create-calificacion.interface'
 export class TeacherCalificacionTableComponent implements OnInit{
   @Input() referentes!: Referente[];
   calificaciones !: Calificacion[];
-  alumnos : Alumno[] = [];
+  alumnos : AlumnoDetailsResponse[] = [];
   instrumentoId: string ="";
   asignaturaId: string ="";
   route: ActivatedRoute = inject(ActivatedRoute);
@@ -24,7 +28,7 @@ export class TeacherCalificacionTableComponent implements OnInit{
   codAlumn : string = "";
 
 
-  constructor( private calificacionService: CalificacionesService, private modalService: NgbModal){
+  constructor( private calificacionService: CalificacionesService, private modalService: NgbModal, private alumnoService: AlumnoService ){
     this.instrumentoId = this.route.snapshot.params['id'];
     this.asignaturaId = this.route.snapshot.params['id_asig'];
   }
@@ -35,14 +39,6 @@ export class TeacherCalificacionTableComponent implements OnInit{
         next: resp => {
           
           this.calificaciones = resp.content;
-          console.log(this.calificaciones);
-          console.log(this.alumnos);
-          this.calificaciones.forEach(calf => {
-            if(!this.alumnos.map(al => al.id).includes(calf.alumno.id)){
-              this.alumnos.push(calf.alumno);
-            }
-              
-          });
           console.log(this.alumnos);
           
         },
@@ -52,6 +48,16 @@ export class TeacherCalificacionTableComponent implements OnInit{
           }
         }
       });
+      this.alumnoService.getAlumnoByAsignatura(this.asignaturaId).subscribe({
+        next: data =>{  
+          this.alumnos = data;
+        }, error: err=>{
+          
+
+          window.location.href = `${environment.localHost}notfound`
+        }
+      })
+      
   }
   open(content: TemplateRef<any>, numberRef: number, numberAl: number) {
     this.codRef = this.referentes[numberRef].codReferente;
@@ -71,6 +77,17 @@ export class TeacherCalificacionTableComponent implements OnInit{
           errors.forEach((error: { field: string; message: string; }) => {
             this.calfErr = error.message;
           });
+        }
+      }
+    });
+  }
+  delete(id:string){
+    this.calificacionService.deleteCalificacion(id).subscribe({
+      next: data=>{
+        window.location.reload();
+      }, error: err =>{
+        if(err == 404){
+          window.location.href = `${environment.apiBaseUrl}not-found`
         }
       }
     });

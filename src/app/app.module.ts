@@ -14,7 +14,6 @@ import { SubjectListComponent } from './component/subject-list/subject-list.comp
 import { StudentDetailsComponent } from './ui/student-details/student-details.component';
 import { StudentMarksComponent } from './ui/student-marks/student-marks.component';
 import { InstrumentDetailsComponent } from './ui/instrument-details/instrument-details.component';
-import { TeacherListComponent } from './ui/teacher-list/teacher-list.component';
 import { InstrumentListComponent } from './ui/instrument-list/instrument-list.component';
 import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
@@ -36,6 +35,9 @@ import { PageStudentListComponent } from './ui/page-student-list/page-student-li
 import { TeacherReferentListComponent } from './component/teacher-referent-list/teacher-referent-list.component';
 import { PageSubjectListComponent } from './ui/page-subject-list/page-subject-list.component';
 import { AdminSectionComponent } from './sections/admin-section/admin-section.component';
+import { TeacherItemComponent } from './component/teacher-item/teacher-item.component';
+import { TeacherListComponent } from './component/teacher-list/teacher-list.component';
+import { PageTeacherListComponent } from './ui/page-teacher-list/page-teacher-list.component';
 import { TeacherCalificacionTableComponent } from './component/teacher-calificacion-table/teacher-calificacion-table.component';
 import { LoggerInterceptor, authInterceptorProviders } from './logger.interceptor';
 import { RemoveWrapperInterceptor } from './RemoveWrapperInterceptor';
@@ -52,7 +54,6 @@ import { DatePipe } from '@angular/common';
     StudentDetailsComponent,
     StudentMarksComponent,
     InstrumentDetailsComponent,
-    TeacherListComponent,
     InstrumentListComponent,
     PageNotFoundComponent,
     NavbarComponent,
@@ -66,6 +67,9 @@ import { DatePipe } from '@angular/common';
     PageSubjectListComponent,
     SubjectListComponent,
     AdminSectionComponent,
+    TeacherItemComponent,
+    TeacherListComponent,
+    PageTeacherListComponent,
     TeacherCalificacionTableComponent
   ],
   imports: [

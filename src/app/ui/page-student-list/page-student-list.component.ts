@@ -10,14 +10,14 @@ import { AlumnoService } from '../../services/alumno.service';
   templateUrl: './page-student-list.component.html',
   styleUrl: './page-student-list.component.css'
 })
-export class PageStudentListComponent implements OnInit{
+export class PageStudentListComponent implements OnInit {
   teacherId: string = '';
   route: ActivatedRoute = inject(ActivatedRoute);
   alumnoPList: AlumnoP[] = [];
   page = 0;
   nombre: string = '';
   apellidos: string = '';
-  fechaNacimiento:NgbDateStruct = { year: 2023, month: 1, day: 1 };
+  fechaNacimiento: NgbDateStruct = { year: 2023, month: 1, day: 1 };
   email: string = '';
   telefono: string = '';
   username: string = '';
@@ -30,7 +30,7 @@ export class PageStudentListComponent implements OnInit{
   usernameError: string = '';
   passwordError: string = '';
 
-  constructor(private alumnoService: AlumnoService, private modalService: NgbModal){
+  constructor(private alumnoService: AlumnoService, private modalService: NgbModal) {
     this.teacherId = this.route.snapshot.params['id'];
   }
 
@@ -40,13 +40,13 @@ export class PageStudentListComponent implements OnInit{
     });
   }
 
-	open(content: TemplateRef<any>) {
-		this.modalService.open(content);
-	}
-  
-  crearAlumno(){
-    let getDia = this.fechaNacimiento.day.toString().split('').length > 1? this.fechaNacimiento.day.toString(): "0"+this.fechaNacimiento.day;
-    let getMes = this.fechaNacimiento.month.toString().split('').length > 1? this.fechaNacimiento.month.toString(): "0"+this.fechaNacimiento.month;
+  open(content: TemplateRef<any>) {
+    this.modalService.open(content);
+  }
+
+  crearAlumno() {
+    let getDia = this.fechaNacimiento.day.toString().split('').length > 1 ? this.fechaNacimiento.day.toString() : "0" + this.fechaNacimiento.day;
+    let getMes = this.fechaNacimiento.month.toString().split('').length > 1 ? this.fechaNacimiento.month.toString() : "0" + this.fechaNacimiento.month;
     let fechaNacimientoConv: string = this.fechaNacimiento.year + "-" + getMes + "-" + getDia;
     let nuevoAlumno: POSTAlumnoDTO = new POSTAlumnoDTO(this.nombre, this.apellidos, fechaNacimientoConv, this.email, this.telefono, this.username, this.password);
     console.log(this.fechaNacimiento);
@@ -54,12 +54,12 @@ export class PageStudentListComponent implements OnInit{
     console.log(getMes);
     this.alumnoService.createAlumno(nuevoAlumno).subscribe({
       next: resp => {
-        window.location.href = "http://localhost:4200/teacher/"+this.teacherId+"/student";
-      }, error: errorG =>{
-        if(errorG.status = 400){
+        window.location.href = "http://localhost:4200/teacher/" + this.teacherId + "/student";
+      }, error: errorG => {
+        if (errorG.status = 400) {
           let errors = errorG.error.body.fields_errors;
-          errors.forEach((erro: {field: any; message: any;}) => {
-            switch(erro.field){
+          errors.forEach((erro: { field: any; message: any; }) => {
+            switch (erro.field) {
               case "nombre":
                 this.nombreError = erro.message;
                 break;
@@ -85,7 +85,7 @@ export class PageStudentListComponent implements OnInit{
           });
         }
       }
-      });
+    });
   }
 
 }

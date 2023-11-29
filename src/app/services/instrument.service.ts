@@ -44,4 +44,8 @@ export class InstrumentService {
   getInstrumentoDetails(id:string):Observable<InstrumentoDetailResponse>{
     return this.http.get<InstrumentoDetailResponse>(`${environment.apiBaseUrl}teacher/instrumento/${id}`);
   }
+
+  deleteInstrument(id:string):Observable<any>{
+    return this.http.delete<any>(`${environment.apiBaseUrl}teacher/instrumento/${id}`);
+  }
 }

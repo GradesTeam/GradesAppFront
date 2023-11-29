@@ -43,4 +43,7 @@ export class ReferentsService {
       }
     );
   }
+  deleteRef(id:string):Observable<any>{
+    return this.http.delete<any>(`${environment.apiBaseUrl}teacher/referente/${id}`);
+  }
 }

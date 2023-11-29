@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Teacher } from '../../models/teacher-list-response';
 
 @Component({
   selector: 'app-teacher-item',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class TeacherItemComponent {
 
+  @Input() teacher!: Teacher;
+
+  popoverClicked(event: MouseEvent) {
+    event.stopPropagation();
+  }
 }

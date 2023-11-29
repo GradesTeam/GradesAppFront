@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TeacherService } from '../../services/teacher.service';
+import { Teacher } from '../../models/teacher-list-response';
 
 @Component({
   selector: 'app-teacher-list',
@@ -8,6 +9,7 @@ import { TeacherService } from '../../services/teacher.service';
 })
 export class TeacherListComponent {
 
-  constructor(private teacherService: TeacherService){}
+  @Input() list!: Teacher[];
+
 
 }

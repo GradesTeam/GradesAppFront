@@ -1,27 +1,33 @@
-# GradesAppFront
+# gradesApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.2.
+gradesApp es una aplicación desarrollada en Angular 17 que se enfoca en la gestión de calificaciones. Permite administrar información relacionada con alumnos, profesores, instrumentos y referentes dentro del contexto educativo.
 
-## Development server
+## Funcionalidades principales
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Gestión de Alumnos:** Permite agregar, editar y eliminar información de alumnos, incluyendo detalles personales y de contacto.
+  
+- **Gestión de Profesores:** Facilita la administración de datos de profesores, incluyendo su información profesional y de contacto.
 
-## Code scaffolding
+- **Gestión de Instrumentos:** Permite la configuración y seguimiento de los instrumentos o criterios utilizados para evaluar a los alumnos.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Gestión de Referentes:** Proporciona herramientas para manejar información relevante sobre los referentes educativos y de evaluación.
 
-## Build
+## Instalación
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Para utilizar gradesApp, sigue estos pasos:
 
-## Running unit tests
+1. Clona este repositorio en tu máquina local usando `git clone`.
+2. Navega hasta el directorio de la aplicación.
+3. Ejecuta `npm install` para instalar las dependencias.
+4. Utiliza `ng serve` para iniciar el servidor de desarrollo. Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente si realizas cambios en el código fuente.
+5. El Front de esta aplicacion, debe estar conectado con el Back encontrado en el siguiente repositorio: https://github.com/GradesTeam/GradesAppBack
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Créditos
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Este proyecto fue desarrollado por Alejandro Jiménez Fernández, Javier Prieto Ortiz, Manuel Molina García, Antonio Martínez López.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Rutas
+
+Es posible que algunas de las páginas desarrolladas no sean accesibles a través de componentes en la pantalla de interfaz de usuario, para acceder a estas páginas, deberá hacerlo por URL, consultar el routing.module para ver todas y cada usa de estas URL.

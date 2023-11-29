@@ -25,7 +25,6 @@ import {
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TeacherInstrumentListComponent } from './component/teacher-instrument-list/teacher-instrument-list.component';
-import { TeacherReferenteItemComponent } from './component/teacher-referente-item/teacher-referente-item.component';
 import { FormsModule } from '@angular/forms';
 
 import { StudentItemComponent } from './component/student-item/student-item.component';
@@ -40,6 +39,7 @@ import { PageTeacherListComponent } from './ui/page-teacher-list/page-teacher-li
 import { TeacherCalificacionTableComponent } from './component/teacher-calificacion-table/teacher-calificacion-table.component';
 import { LoggerInterceptor } from './logger.interceptor';
 import { RemoveWrapperInterceptor } from './RemoveWrapperInterceptor';
+import { TeacherReferenteItemComponent } from './component/teacher-referente-item/teacher-referente-item.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +58,6 @@ import { RemoveWrapperInterceptor } from './RemoveWrapperInterceptor';
     TeacherSubjectComponent,
     TeacherInstrumentItemComponent,
     TeacherInstrumentListComponent,
-    TeacherReferenteItemComponent,
     StudentItemComponent,
     PageStudentListComponent,
     TeacherReferentListComponent,
@@ -68,7 +67,8 @@ import { RemoveWrapperInterceptor } from './RemoveWrapperInterceptor';
     TeacherItemComponent,
     TeacherListComponent,
     PageTeacherListComponent,
-    TeacherCalificacionTableComponent
+    TeacherCalificacionTableComponent,
+    TeacherReferenteItemComponent
   ],
   imports: [
     BrowserModule,

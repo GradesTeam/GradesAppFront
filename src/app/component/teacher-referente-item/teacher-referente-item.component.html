@@ -1,3 +1,25 @@
+<ng-template #editModal let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<form>
+			<div class="mb-3">
+                <div class="mb-3">
+                  <label for="codRef" class="form-label">Introduce el código del referente</label>
+                  <input type="text" class="form-control " id="codRef" name="codRef" [value]="codRefEdit" readonly aria-describedby="codRef" required>
+                </div>
+                <div class="mb-3">
+                  <label for="descRef" class="form-label">Introduce la descripción del referente</label>
+                  <input type="text" class="form-control" id="descRef" name="descRef" [value]="descEdit" required [(ngModel)]="desc">
+                  <div id="dcError" class="text-danger">{{descErr}}</div>
+                 </div>
+                  <button type="button" class="btn btn-dark" (click)="toSave()">Guardar</button>
+			</div>
+		</form>
+	</div>
+</ng-template>
 <div class="card mb-3"  >
   <div class="row g-0">
     <div class="col-md-1 align-items-center d-flex justify-content-center">
@@ -25,25 +47,3 @@
     </div>
   </div>
 </div>
-<ng-template #editModal let-modal>
-	<div class="modal-header">
-		<h4 class="modal-title" id="modal-basic-title">Profile update</h4>
-		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-	</div>
-	<div class="modal-body">
-		<form>
-			<div class="mb-3">
-                <div class="mb-3">
-                  <label for="codRef" class="form-label">Introduce el código del referente</label>
-                  <input type="text" class="form-control " id="codRef" name="codRef" [value]="codRefEdit" readonly aria-describedby="codRef" required>
-                </div>
-                <div class="mb-3">
-                  <label for="descRef" class="form-label">Introduce la descripción del referente</label>
-                  <input type="text" class="form-control" id="descRef" name="descRef" [value]="descEdit" required [(ngModel)]="desc">
-                  <div id="dcError" class="text-danger">{{descErr}}</div>
-                 </div>
-                  <button type="button" class="btn btn-dark" (click)="toSave()">Guardar</button>
-			</div>
-		</form>
-	</div>
-</ng-template>

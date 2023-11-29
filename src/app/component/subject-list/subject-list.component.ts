@@ -1,6 +1,6 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { SubjectService } from '../../services/subject.service';
-import { SubjectA, SubjectResponse } from '../../models/subject.interface';
+import { SubjectA} from '../../models/subject.interface';
 
 @Component({
   selector: 'app-subject-list',

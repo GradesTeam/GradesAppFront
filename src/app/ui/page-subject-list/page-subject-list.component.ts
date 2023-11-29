@@ -36,7 +36,6 @@ export class PageSubjectListComponent implements OnInit {
   }
   capturar(id: any) {
     this.idProfeS = id;
-    debugger;
   }
   open(content: TemplateRef<any>) {
     this.modalService.open(content);

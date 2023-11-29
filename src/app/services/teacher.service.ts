@@ -56,4 +56,8 @@ export class TeacherService {
   }
     );
   }
+
+  deleteTeacher(id: any): Observable<any> {
+    return this.http.delete<any>(`${environment.apiBaseUrl}profesor/${id}`)
+  }
 }

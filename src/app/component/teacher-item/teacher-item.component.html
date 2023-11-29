@@ -22,7 +22,7 @@
         <button ngbDropdownItem (click)="open(content)" class="popero w-100"><fa-icon [icon]="['fas', 'pen-to-square']"></fa-icon>
           Editar</button>
         <hr />
-        <button ngbDropdownItem class="popero w-100"><fa-icon [icon]="['fas', 'trash']"></fa-icon> <i
+        <button ngbDropdownItem (click)="delete()" class="popero w-100"><fa-icon [icon]="['fas', 'trash']"></fa-icon> <i
             class="bi bi-trash"></i> Borrar</button>
       </ng-template>
     </div>

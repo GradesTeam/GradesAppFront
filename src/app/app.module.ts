@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import {
   BrowserModule,
-  provideClientHydration,
 } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -26,7 +25,6 @@ import {
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TeacherInstrumentListComponent } from './component/teacher-instrument-list/teacher-instrument-list.component';
-import { TeacherReferenteItemComponent } from './component/teacher-referente-item/teacher-referente-item.component';
 import { FormsModule } from '@angular/forms';
 
 import { StudentItemComponent } from './component/student-item/student-item.component';
@@ -39,9 +37,9 @@ import { TeacherItemComponent } from './component/teacher-item/teacher-item.comp
 import { TeacherListComponent } from './component/teacher-list/teacher-list.component';
 import { PageTeacherListComponent } from './ui/page-teacher-list/page-teacher-list.component';
 import { TeacherCalificacionTableComponent } from './component/teacher-calificacion-table/teacher-calificacion-table.component';
-import { LoggerInterceptor, authInterceptorProviders } from './logger.interceptor';
+import { LoggerInterceptor } from './logger.interceptor';
 import { RemoveWrapperInterceptor } from './RemoveWrapperInterceptor';
-import { DatePipe } from '@angular/common';
+import { TeacherReferenteItemComponent } from './component/teacher-referente-item/teacher-referente-item.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +58,6 @@ import { DatePipe } from '@angular/common';
     TeacherSubjectComponent,
     TeacherInstrumentItemComponent,
     TeacherInstrumentListComponent,
-    TeacherReferenteItemComponent,
     StudentItemComponent,
     PageStudentListComponent,
     TeacherReferentListComponent,
@@ -70,7 +67,8 @@ import { DatePipe } from '@angular/common';
     TeacherItemComponent,
     TeacherListComponent,
     PageTeacherListComponent,
-    TeacherCalificacionTableComponent
+    TeacherCalificacionTableComponent,
+    TeacherReferenteItemComponent
   ],
   imports: [
     BrowserModule,

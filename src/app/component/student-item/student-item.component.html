@@ -8,7 +8,7 @@
       <span style="font-size: 11px">{{ alumno.fechaNacimiento }}</span>
     </div>
     <div class="col-2 puntitos">
-      <button type="button" class="btn btn-primary" (click)="onEditarClick()">
+      <button type="button" class="btn btn-primary" (click)="open(content, $event)">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -48,3 +48,57 @@
     </div>
   </div>
 </div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Añadir alumno</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="mb-3">
+        <label for="nombre">Nombre</label>
+        <div class="form-group">
+          <input id="nombre" name="nombre" type="text" class="form-control"  [value]="nombreEdit" [(ngModel)]="nombre"
+            required />
+          <div id="nombreError" class="text-danger mx-3">{{ nombreError }}</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="apellidos">Apellidos</label>
+        <div class="form-group">
+          <input id="apellidos" name="apellidos" type="text" class="form-control"  [value]="apellidoEdit"
+            [(ngModel)]="apellido" required />
+          <div id="apellidosError" class="text-danger mx-3">
+            {{ apellidoError }}
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="email">Email</label>
+        <div class="form-group">
+          <input id="email" name="email" type="text" class="form-control"  [value]="emailEdit" [(ngModel)]="email"
+            required />
+          <div id="emailError" class="text-danger mx-3">
+            {{ emailError }}
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="telefono">Teléfono</label>
+        <div class="form-group">
+          <input id="telefono" name="telefono" class="form-control" type="text" 
+          [value]="telefonoEdit" [(ngModel)]="telefono" required />
+          <div id="telefonoError" class="text-danger mx-3">
+            {{ telefonoError }}
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="guardar()">
+      Guardar
+    </button>
+  </div>
+</ng-template>

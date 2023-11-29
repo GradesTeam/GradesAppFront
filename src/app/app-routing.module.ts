@@ -9,9 +9,9 @@ import { InstrumentListComponent } from './ui/instrument-list/instrument-list.co
 import { StudentMarksComponent } from './ui/student-marks/student-marks.component';
 import { InstrumentDetailsComponent } from './ui/instrument-details/instrument-details.component';
 import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
-import { StudentListComponent } from './component/student-list/student-list.component';
 import { AdminSectionComponent } from './sections/admin-section/admin-section.component';
 import { PageTeacherListComponent } from './ui/page-teacher-list/page-teacher-list.component';
+import { PageStudentListComponent } from './ui/page-student-list/page-student-list.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },

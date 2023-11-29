@@ -12,5 +12,5 @@ export interface AlumnoProfesorListResponse {
 export interface AlumnoP {
     id:              string;
     nombreApellidos: string;
-    fechaNacimiento: Date;
+    fechaNacimiento: string;
 }

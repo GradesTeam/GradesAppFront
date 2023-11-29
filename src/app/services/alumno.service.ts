@@ -5,6 +5,8 @@ import { AlumnoProfesorListResponse } from '../models/alumno-profesor-list.intef
 import { environment } from '../enviroment/enviroment';
 import { POSTAlumnoDTO } from '../models/create-alumno.interface';
 import { CreatedAlumnoResponse } from '../models/create-alumno-request.interface';
+import { AlumnoDetailsResponse } from '../models/alumno-details.interface';
+import { EDITAlumnoDTO } from '../models/edit-alumno-request.interface';
 
 const API_BASE_URL = 'profesor';
 
@@ -19,6 +21,10 @@ export class AlumnoService {
     return this.http.get<AlumnoProfesorListResponse>(`${environment.apiBaseUrl}${API_BASE_URL}/${id}/alumnos`);
   }
 
+  getAlumnoDetails(id: string): Observable<AlumnoDetailsResponse>{
+    return this.http.get<AlumnoDetailsResponse>(`${environment.apiBaseUrl}alumno/${id}`);
+  }
+
   createAlumno(alumno: POSTAlumnoDTO):Observable<CreatedAlumnoResponse>{
     return this.http.post<CreatedAlumnoResponse>(`${environment.apiBaseUrl}alumno/`,
     {
@@ -30,5 +36,19 @@ export class AlumnoService {
       "username": alumno.username,
       "password": alumno.password
     });
+  }
+
+  editAlumno(id: string, alumnoAEditar: EDITAlumnoDTO):Observable<AlumnoDetailsResponse>{
+    return this.http.put<AlumnoDetailsResponse>(`${environment.apiBaseUrl}alumno/edit/${id}`,
+    {
+      "nombre": alumnoAEditar.nombre,
+      "apellidos": alumnoAEditar.apellidos,
+      "email": alumnoAEditar.email,
+      "telefono": alumnoAEditar.telefono
+    });
+  }
+
+  deleteAlumno(id:string):Observable<any>{
+    return this.http.delete<any>(`${environment.apiBaseUrl}alumno/delete/${id}`);
   }
 }

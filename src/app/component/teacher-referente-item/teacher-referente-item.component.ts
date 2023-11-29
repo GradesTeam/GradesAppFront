@@ -3,6 +3,8 @@ import { AllReferenteDTO } from '../../models/referente-list.interface';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { ReferentsService } from '../../services/referents.service';
 import { ActivatedRoute } from '@angular/router';
+import { error } from 'console';
+import { environment } from '../../enviroment/enviroment';
 
 @Component({
   selector: 'app-teacher-referente-item',
@@ -41,6 +43,20 @@ export class TeacherReferenteItemComponent implements OnInit{
             this.descErr = error.message;
           });
         } 
+      }
+    });
+  }
+  delete(){
+    this.referenteService.deleteRef(this.referente.codReferente).subscribe({
+      next: data=>{
+        window.location.href =
+          'http://localhost:4200/teacher/subject/' +
+          this.asignaturaId +
+          '?instrumento=false';
+      },error: err=>{
+        if(err.status == 404){
+          window.location.href = `${environment.localHost}not-found`;
+        }
       }
     });
   }

@@ -32,7 +32,7 @@
 
 <ng-template #content let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Añadir alumno</h4>
+        <h4 class="modal-title" id="modal-basic-title">Añadir profesor</h4>
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
@@ -56,23 +56,6 @@
                 </div>
             </div>
             <div class="mb-3">
-                <label for="fechaNacimiento">Date of birth</label>
-                <div class="input-group">
-                    <input id="fechaNacimiento" class="form-control" placeholder="2000-01-01" name="fechaNacimiento"
-                        ngbDatepicker #dp="ngbDatepicker" [(ngModel)]="fechaNacimiento" required />
-                    <button class="btn btn-outline-secondary bi bi-calendar3" (click)="dp.toggle()" type="button">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-calendar" viewBox="0 0 16 16">
-                            <path
-                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
-                        </svg>
-                    </button>
-                </div>
-                <div id="fechaNacimientoError" class="text-danger mx-3">
-                    {{ fechaNacimientoError }}
-                </div>
-            </div>
-            <div class="mb-3">
                 <label for="email">Email</label>
                 <div class="form-group">
                     <input id="email" name="email" type="text" class="form-control" placeholder="Paco"
@@ -93,7 +76,7 @@
                 </div>
             </div>
             <div class="mb-3">
-                <label for="username">Usuario</label>
+                <label for="username">Nombre de usuario</label>
                 <div class="form-group">
                     <input id="username" name="username" class="form-control" placeholder="Paco" type="text"
                         [(ngModel)]="username" required />
@@ -104,6 +87,16 @@
             </div>
             <div class="mb-3">
                 <label for="password">Contraseña</label>
+                <div class="form-group">
+                    <input id="password" name="password" type="password" class="form-control" [(ngModel)]="password"
+                        required />
+                    <div id="passwordError" class="text-danger mx-3">
+                        {{ passwordError }}
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="password">Repetir contraseña</label>
                 <div class="form-group">
                     <input id="password" name="password" type="password" class="form-control" [(ngModel)]="password"
                         required />

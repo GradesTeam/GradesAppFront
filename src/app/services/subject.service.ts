@@ -36,4 +36,9 @@ export class SubjectService {
       }
     );
   }
+  getAsignaturaByProfesor(page: number, id: string):Observable<SubjectResponse>{
+    return this.http.get<SubjectResponse>(
+      `${environment.apiBaseUrl}teacher/${id}/asignatura/?page=${page}`
+    );
+  }
 }

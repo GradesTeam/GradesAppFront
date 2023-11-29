@@ -68,4 +68,10 @@ export class TeacherItemComponent {
 
     })
   }
+
+  delete(){
+    this.teacherService.deleteTeacher(this.teacher.id).subscribe(ans => {
+      window.location.reload();
+    });
+  }
 }

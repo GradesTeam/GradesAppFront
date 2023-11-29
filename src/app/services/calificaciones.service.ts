@@ -16,6 +16,9 @@ export class CalificacionesService {
   getInstrumentoDetails(id:string):Observable<CalificacionesInstrumentoResponse>{
     return this.http.get<CalificacionesInstrumentoResponse>(`${environment.apiBaseUrl}teacher/instrumento/${id}/calificaciones`);
   }
+  getCalificacionsAlumno(id:string):Observable<CalificacionesInstrumentoResponse>{
+    return this.http.get<CalificacionesInstrumentoResponse>(`${environment.apiBaseUrl}student/instrumento/${id}/calificaciones`);
+  }
   createCalificacion(id:string, newCalf:POSTCalificacionDTO):Observable<any>{
     return this.http.post<any>(`${environment.apiBaseUrl}teacher/instrumento/${id}/calificacion`,{
       codRef: newCalf.codRef,

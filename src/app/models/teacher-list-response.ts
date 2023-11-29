@@ -12,6 +12,8 @@ export interface TeacherListResponse {
 export interface Teacher {
     id: string;
     nombre: string;
+    apellidos: string;
+    email: string;
     titulacion: null | string;
 }
 

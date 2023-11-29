@@ -10,12 +10,13 @@ import { TeacherService } from '../../services/teacher.service';
   templateUrl: './page-subject-list.component.html',
   styleUrl: './page-subject-list.component.css',
 })
-export class PageSubjectListComponent implements OnInit{
+export class PageSubjectListComponent implements OnInit {
   SubjectAList: SubjectA[] = [];
   page = 0;
   nombre: string = '';
   horas: number = 0;
-  idProfe: string = '';
+  idProfesor: string = '';
+  idProfeS: string = '';
   descripcion: string = '';
   color: string = '';
   nomErr: string = '';
@@ -25,52 +26,60 @@ export class PageSubjectListComponent implements OnInit{
   colorError: string = '';
   profesorList!: TeacherItem[];
 
-
-  constructor(private asignaturaService: SubjectService, private modalService: NgbModal, private profesoresService: TeacherService) {}
+  constructor(
+    private asignaturaService: SubjectService,
+    private modalService: NgbModal,
+    private profesoresService: TeacherService
+  ) {}
   ngOnInit(): void {
     this.getProfesores();
   }
-
-  open(content: TemplateRef<any>){
+  capturar() {
+    this.idProfeS = this.idProfesor;
+    debugger;
+  }
+  open(content: TemplateRef<any>) {
     this.modalService.open(content);
   }
-  getProfesores(){
-    this.profesoresService.getTeachers(this.page).subscribe(resp=>{
-      this.profesorList= resp.content;
-    })
+  getProfesores() {
+    this.profesoresService.getTeachers(this.page).subscribe((resp) => {
+      this.profesorList = resp.content;
+    });
   }
   createdAsigna() {
     let newAsig: PostAsignaturaDTO = new PostAsignaturaDTO(
       this.nombre,
       this.horas,
-      this.idProfe,
+      this.idProfeS,
       this.descripcion,
       this.color
     );
+    console.log(newAsig);
+    debugger;
     this.asignaturaService.createdAsignatura(newAsig).subscribe({
       next: (data) => {
         window.location.href = 'http://localhost:4200/teacher/subject/';
       },
       error: (err) => {
-        if((err.status = 404)){
-          let badReqs= err;
-          let errores= badReqs.error.body.fields_errors;
-          errores.forEach((error: {field: any, message:any}) => {
-            switch(error.field){
-              case "nombre":
-                this.nomErr= error.message;
+        if ((err.status = 404)) {
+          let badReqs = err;
+          let errores = badReqs.error.body.fields_errors;
+          errores.forEach((error: { field: any; message: any }) => {
+            switch (error.field) {
+              case 'nombre':
+                this.nomErr = error.message;
                 break;
-              case "horas":
-                this.horasErrormin= error.message;
+              case 'horas':
+                this.horasErrormin = error.message;
                 break;
-              case "idProfesor":
-                this.idProError= error.message;
+              case 'idProfesor':
+                this.idProError = error.message;
                 break;
-              case "descripcion":
-                this.descripError= error.message;
+              case 'descripcion':
+                this.descripError = error.message;
                 break;
-              case "color":
-                this.colorError= error.message;
+              case 'color':
+                this.colorError = error.message;
                 break;
             }
           });

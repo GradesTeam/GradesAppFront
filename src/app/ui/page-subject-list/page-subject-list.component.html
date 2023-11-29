@@ -13,7 +13,7 @@
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Añadir Asignatura</h4>
     <button
-      type="button" 
+      type="button"
       class="btn-close"
       aria-label="Close"
       (click)="modal.dismiss('Cross click')"
@@ -73,9 +73,19 @@
       </div>
       <div class="mb-3">
         <label for="profesor">Profesor</label>
-        <select class="form-select" aria-label="Default select example" *ngFor="let profe of profesorList">
-          <option selected>Elija un profesor</option>
-          <option [value]="profe.id">{{profe.nombre}}</option>
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          [value]="idProfesor"
+          (change)="capturar()"
+        >
+          <option
+            [value]="profe.id"
+            *ngFor="let profe of profesorList"
+            id="idProfesor"
+          >
+            {{ profe.nombre }}
+          </option>
         </select>
         <div id="idProError" class="text-danger mx-3">
           {{ idProError }}
@@ -88,7 +98,7 @@
             id="color"
             name="color"
             class="form-control"
-            placeholder="#FF5733" 
+            placeholder="#FF5733"
             type="text"
             [(ngModel)]="color"
             required
@@ -101,7 +111,11 @@
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="createdAsigna()">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="createdAsigna()"
+    >
       Save
     </button>
   </div>

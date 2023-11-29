@@ -14,11 +14,7 @@ export class SubjectService {
 
   getAsignaturas(page: number): Observable<SubjectResponse> {
     return this.http.get<SubjectResponse>(
-      `${environment.apiBaseUrl}teacher/asignatura/?page=${page}`,{
-        headers:{
-          'Authorization': 'Bearer ' + sessionStorage.getItem('token')
-        }
-      }
+      `${environment.apiBaseUrl}teacher/asignatura/?page=${page}`
     );
   }
   createdAsignatura(
@@ -36,7 +32,6 @@ export class SubjectService {
       {
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + sessionStorage.getItem('token')
         },
       }
     );

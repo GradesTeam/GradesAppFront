@@ -71,7 +71,7 @@
         <ng-template #popContent>
           <button ngbDropdownItem class="popero w-100" (click)="open(addModal, $event)"><fa-icon [icon]="['fas', 'pen-to-square']"></fa-icon> Editar</button>
           <hr />
-          <button ngbDropdownItem class="popero w-100"><fa-icon [icon]="['fas', 'trash']"></fa-icon> <i class="bi bi-trash"></i> Borrar</button>
+          <button ngbDropdownItem class="popero w-100" (click)="delete($event)"><fa-icon [icon]="['fas', 'trash']"></fa-icon> <i class="bi bi-trash"></i> Borrar</button>
       </ng-template>
       </div>
     </div>

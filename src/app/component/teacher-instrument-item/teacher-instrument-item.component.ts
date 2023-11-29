@@ -112,5 +112,17 @@ export class TeacherInstrumentItemComponent implements OnInit{
       this.codReferentes.splice(this.codReferentes.indexOf(codRef));
     }
   }
+  delete(event: any){
+    event.stopPropagation();
+    this.instrumentoService.deleteInstrument(this.instrument.id).subscribe({
+      next: data =>{
+        window.location.reload();
+      }, error: err =>{
+        if(err.status == 404){
+          window.location.href=`${environment.localHost}not-found`;
+        }
+      }
+    });
+  }
   
 }

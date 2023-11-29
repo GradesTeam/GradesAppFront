@@ -87,4 +87,17 @@ export class StudentItemComponent implements OnInit{
       }
     });
   }
+
+  borrar(event: any){
+    event.stopPropagation();
+    this.alumnoService.deleteAlumno(this.alumno.id).subscribe({
+      next: data =>{
+        window.location.reload();
+      }, error: err =>{
+        if(err.status == 404){
+          window.location.href=`${environment.localHost}not-found`;
+        }
+      }
+    });
+  }
 }

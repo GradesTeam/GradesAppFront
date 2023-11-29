@@ -47,4 +47,8 @@ export class AlumnoService {
       "telefono": alumnoAEditar.telefono
     });
   }
+
+  deleteAlumno(id:string):Observable<any>{
+    return this.http.delete<any>(`${environment.apiBaseUrl}alumno/delete/${id}`);
+  }
 }

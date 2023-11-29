@@ -6,6 +6,7 @@ import { environment } from '../enviroment/enviroment';
 import { CreateInstrumentResponse } from '../models/create-instrumento-request.interface';
 import { POSTInstrumentoDTO } from '../models/create-instrumento.interface';
 import { InstrumentoDetailResponse } from '../models/instrumento-details.interface';
+import { env } from 'process';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,14 @@ export class InstrumentService {
         }
       }
     );
+  }
+  editInstrument(id: string, editedIns: POSTInstrumentoDTO):Observable<InstrumentoDetailResponse>{
+    return this.http.put<InstrumentoDetailResponse>(`${environment.apiBaseUrl}teacher/instrumento/${id}`,{
+      nombre: editedIns.nombre,
+      fecha: editedIns.fecha,
+      contenidos: editedIns.contenidos,
+      referentes: editedIns.referentes
+    });
   }
   getInstrumentoDetails(id:string):Observable<InstrumentoDetailResponse>{
     return this.http.get<InstrumentoDetailResponse>(`${environment.apiBaseUrl}teacher/instrumento/${id}`);

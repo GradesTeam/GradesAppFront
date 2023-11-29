@@ -7,9 +7,13 @@
 </div>
 <div class="pagination justify-content-center">
   <ngb-pagination
-    [collectionSize]="subjectInfo.totalElements"
+    class="custom-pagination"
+    [maxSize]="2"
+    [boundaryLinks]="true"
+    [collectionSize]="count"
     [(page)]="page"
+    [pageSize]="pageSize"
+    (pageChange)="loadNewPage()"
     aria-label="Default pagination"
-    [maxSize]="subjectInfo.size"
-  />
+  ></ngb-pagination>
 </div>

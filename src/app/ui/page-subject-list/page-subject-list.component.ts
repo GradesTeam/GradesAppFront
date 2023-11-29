@@ -36,13 +36,12 @@ export class PageSubjectListComponent implements OnInit {
   }
   capturar(id: any) {
     this.idProfeS = id;
-    debugger;
   }
   open(content: TemplateRef<any>) {
     this.modalService.open(content);
   }
   getProfesores() {
-    this.profesoresService.getTeachers(this.page).subscribe((resp) => {
+    this.profesoresService.getAllTeacher().subscribe((resp) => {
       this.profesorList = resp.content;
     });
   }

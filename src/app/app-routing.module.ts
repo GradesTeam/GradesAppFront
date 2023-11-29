@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.compon
 import { StudentListComponent } from './component/student-list/student-list.component';
 import { AdminSectionComponent } from './sections/admin-section/admin-section.component';
 import { PageTeacherListComponent } from './ui/page-teacher-list/page-teacher-list.component';
+import { PageAsignaturaTeacherComponent } from './ui/page-asignatura-teacher/page-asignatura-teacher.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -23,19 +24,11 @@ const routes: Routes = [
       { path: 'teachers', component: PageTeacherListComponent },
       { path: 'teacher/:id/students', component: StudentListComponent },
       { path: 'teacher/subject/:id', component: SubjectDetailsComponent },
-      {
-        path: 'teacher/subject/:id/instruments',
-        component: InstrumentListComponent,
-      },
+      { path: 'teacher/:id/subjects', component: PageAsignaturaTeacherComponent},
+      {path: 'teacher/subject/:id/instruments',component: InstrumentListComponent},
       { path: 'teacher/student/:id', component: StudentDetailsComponent },
-      {
-        path: 'teacher/subject/instrument/:id',
-        component: InstrumentDetailsComponent,
-      },
-      {
-        path: 'teacher/subject/:id_asig/instrument/:id',
-        component: InstrumentDetailsComponent,
-      },
+      { path: 'teacher/subject/instrument/:id',component: InstrumentDetailsComponent},
+      {path: 'teacher/subject/:id_asig/instrument/:id',component: InstrumentDetailsComponent},
       { path: '', redirectTo: '/login', pathMatch: 'full' },
     ]
   },

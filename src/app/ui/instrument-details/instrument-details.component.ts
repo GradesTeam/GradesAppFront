@@ -29,35 +29,19 @@ export class InstrumentDetailsComponent implements OnInit{
   }
 
   ngOnInit(): void {
+
       this.instrumentService.getInstrumentoDetails(this.instrumentoId).subscribe({
         next: resp => {
           this.instrumento = resp;
           this.referentes = resp.referentes;
-          
         },
         error: err => {
           if(err.status = 404){
-            window.location.href = `${environment.localHost}not-found`;
+            console.log("hola error")
           }
         }
       });
       
-      this.calificacionService.getInstrumentoDetails(this.instrumentoId).subscribe({
-        next: resp => {
-          
-          this.calificaciones = resp.content;
-          console.log(this.calificaciones);
-          console.log(this.alumnos);
-          this.calificaciones.forEach(calf => this.alumnos.push(calf.alumno));
-          console.log(this.alumnos);
-          
-        },
-        error: err => {
-          if(err.status = 404){
-            window.location.href = `${environment.localHost}not-found`;
-          }
-        }
-      });
   }
   backPage(){
     window.location.href=`${environment.localHost}teacher/subject/${this.asignaturaId}`
